@@ -106,6 +106,7 @@ ServiceWindow {
         /*PreviewTab { }*/
         VideoTab { }
         SettingsTab { }
+        ANDDemo { }
     }
 
     DisplayPanel {

@@ -644,7 +644,7 @@ ApplicationItem {
                 enabled: eEnabled
                 minimumValue: 1
                 maximumValue: jogMaxVelocityPin.value
-                defaultValue: 3.0
+                // defaultValue: 3.0
                 color: axisColors[extruderControl.axisIndex]
                 axisName: eName + jogExtruderSelPin.value
                 font.pixelSize: root.fontSize
@@ -659,14 +659,14 @@ ApplicationItem {
                 Layout.preferredWidth: height
                 minimumValue: feedrateHandler.minimumValue
                 maximumValue: feedrateHandler.maximumValue
-                defaultValue: 1.0
+                // defaultValue: 1.0
                 enabled: feedrateHandler.enabled
                 color: allColor
                 axisName: ""
                 font.pixelSize: root.fontSize
                 stepSize: 0.05
                 decimals: 2
-                text: (value * 100).toFixed(0) + "%"
+                // text: (value * 100).toFixed(0) + "%"
 
                 FeedrateHandler {
                     id: feedrateHandler
