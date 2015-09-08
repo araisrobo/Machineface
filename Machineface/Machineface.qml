@@ -107,6 +107,7 @@ ServiceWindow {
         VideoTab { }
         SettingsTab { }
         ANDDemo { }
+        Signals{}
     }
 
     DisplayPanel {

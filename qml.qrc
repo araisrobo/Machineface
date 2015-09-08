@@ -29,5 +29,7 @@
         <file>Machineface/FontIcon.qml</file>
         <file>Machineface/icons/MaterialIcons-Regular.ttf</file>
         <file>Machineface/JogKeyHandler.qml</file>
+        <file>Machineface/ANDDemo.qml</file>
+        <file>Machineface/Signals.qml</file>
     </qresource>
 </RCC>
