@@ -104,8 +104,9 @@ ServiceWindow {
         MdiTab { }
         GCodeTab { }
         /*PreviewTab { }*/
-        VideoTab { }
-        SettingsTab { }
+//        VideoTab { }
+//        SettingsTab { }
+        ExtrasTab { }
         ANDDemo { }
     }
 
