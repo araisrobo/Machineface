@@ -31,5 +31,6 @@
         <file>Machineface/JogKeyHandler.qml</file>
         <file>Machineface/ANDDemo.qml</file>
         <file>Machineface/Signals.qml</file>
+        <file>Machineface/ExtrasTab.qml</file>
     </qresource>
 </RCC>
