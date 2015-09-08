@@ -27,6 +27,7 @@ import Machinekit.Controls 1.0
 import Machinekit.Application 1.0
 import Machinekit.Application.Controls 1.0
 import Machinekit.PathView 1.0
+import Machinekit.Service 1.0
 
 ServiceWindow {
     id: window
@@ -38,6 +39,26 @@ ServiceWindow {
     QtObject {
         id: d
         property string machineName: applicationCore.status.config.name
+    }
+
+    FontLoader {
+        id: iconFont
+        source: "icons/MaterialIcons-Regular.ttf"
+    }
+
+    Service {
+        id: halrcompService
+        type: "halrcomp"
+    }
+
+    Service {
+        id: halrcmdService
+        type: "halrcmd"
+    }
+
+    Service {
+        id: videoService
+        type: "video"
     }
 
     ApplicationCore {
@@ -55,11 +76,18 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: parent.height * 0.1
+        width: window.height * 0.1
+    }
+
+    ApplicationRemoteFileDialog {
+        id: applicationFileDialog
+        width: window.width
+        height: window.height
+        fileDialog: fileDialog
     }
 
     ApplicationFileDialog {
-        id: applicationFileDialog
+        id: fileDialog
     }
 
     TabView {
@@ -103,7 +131,7 @@ ServiceWindow {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.top: parent.top
-        anchors.margins: Screen.pixelDensity * 3
+        anchors.margins: Screen.pixelDensity
         messageWidth: parent.width * 0.25
     }
 }

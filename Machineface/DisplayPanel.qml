@@ -35,7 +35,6 @@ ColumnLayout {
         }
     }
 
-
     Repeater {
         model: 10
         FanControl {
