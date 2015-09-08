@@ -9,7 +9,7 @@ import Machinekit.Application 1.0
 Tab {
     id: signaltab
     anchors.top:parent.top
-    title: qsTr("SignalDemo")
+    title: qsTr("Signals")
     active: true
 
     HalApplicationWindow {//ex:5
@@ -106,38 +106,38 @@ Tab {
                 name:"gpio.in.10"
             }
             HalLed{
-                name:"gpio.in.09"
+                name:"gpio.in.9"
             }
             HalLed{
-                name:"gpio.in.08"
+                name:"gpio.in.8"
             }
         }
         RowLayout{
             x:(row_led1.width + 20) * 3
             y:baseposY
             HalLed{
-                name:"gpio.in.07"
+                name:"gpio.in.7"
             }
             HalLed{
-                name:"gpio.in.06"
+                name:"gpio.in.6"
             }
             HalLed{
-                name:"gpio.in.05"
+                name:"gpio.in.5"
             }
             HalLed{
-                name:"gpio.in.04"
+                name:"gpio.in.4"
             }
             HalLed{
-                name:"gpio.in.03"
+                name:"gpio.in.3"
             }
             HalLed{
-                name:"gpio.in.02"
+                name:"gpio.in.2"
             }
             HalLed{
-                name:"gpio.in.01"
+                name:"gpio.in.1"
             }
             HalLed{
-                name:"gpio.in.00"
+                name:"gpio.in.0"
             }
         }
         RowLayout{
@@ -370,28 +370,28 @@ Tab {
             x:(row_led1.width + 20) * 3
             y:(row_led1.height + 20) * 3 + baseposY1
             HalLed{
-                name:"gpio.out.07"
+                name:"gpio.out.7"
             }
             HalLed{
-                name:"gpio.out.06"
+                name:"gpio.out.6"
             }
             HalLed{
-                name:"gpio.out.05"
+                name:"gpio.out.5"
             }
             HalLed{
-                name:"gpio.out.04"
+                name:"gpio.out.4"
             }
             HalLed{
-                name:"gpio.out.03"
+                name:"gpio.out.3"
             }
             HalLed{
-                name:"gpio.out.02"
+                name:"gpio.out.2"
             }
             HalLed{
-                name:"gpio.out.01"
+                name:"gpio.out.1"
             }
             HalLed{
-                name:"gpio.out.00"
+                name:"gpio.out.0"
             }
         }
         RowLayout{
@@ -416,10 +416,10 @@ Tab {
                 name:"gpio.out.10"
             }
             HalLed{
-                name:"gpio.out.09"
+                name:"gpio.out.9"
             }
             HalLed{
-                name:"gpio.out.08"
+                name:"gpio.out.8"
             }
         }
         RowLayout{
@@ -638,7 +638,7 @@ Tab {
             text: "encposj0 : " + encposj0Pin.value
             HalPin {
                 id: encposj0Pin
-                name: "encposj0"
+                name: "joint.0.encpos"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -648,7 +648,7 @@ Tab {
             text: "encposj1 : " + encposj1Pin.value
             HalPin {
                 id: encposj1Pin
-                name: "encposj1"
+                name: "joint.1.encpos"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -658,7 +658,7 @@ Tab {
             text: "encposj2 : " + encposj2Pin.value
             HalPin {
                 id: encposj2Pin
-                name: "encposj2"
+                name: "joint.2.encpos"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -668,7 +668,7 @@ Tab {
             text: "encposj3 : " + encposj3Pin.value
             HalPin {
                 id: encposj3Pin
-                name: "encposj3"
+                name: "joint.3.encpos"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -678,7 +678,7 @@ Tab {
             text: "encposj4 : " + encposj4Pin.value
             HalPin {
                 id: encposj4Pin
-                name: "encposj4"
+                name: "joint.4.encpos"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -689,7 +689,7 @@ Tab {
             text: "encposj5 : " + encposj5Pin.value
             HalPin {
                 id: encposj5Pin
-                name: "encposj5"
+                name: "joint.5.encpos"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -703,7 +703,7 @@ Tab {
             text: "cmdfbsj0 : " + cmdfbsj0Pin.value
             HalPin {
                 id: cmdfbsj0Pin
-                name: "cmdfbsj0"
+                name: "joint.0.cmdfbs"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -714,7 +714,7 @@ Tab {
             text: "cmdfbsj1 : " + cmdfbsj1Pin.value
             HalPin {
                 id: cmdfbsj1Pin
-                name: "cmdfbsj1"
+                name: "joint.1.cmdfbs"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -725,7 +725,7 @@ Tab {
             text: "cmdfbsj2 : " + cmdfbsj2Pin.value
             HalPin {
                 id: cmdfbsj2Pin
-                name: "cmdfbsj2"
+                name: "joint.2.cmdfbs"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -736,7 +736,7 @@ Tab {
             text: "cmdfbsj3 : " + cmdfbsj3Pin.value
             HalPin {
                 id: cmdfbsj3Pin
-                name: "cmdfbsj3"
+                name: "joint.3.cmdfbs"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -747,7 +747,7 @@ Tab {
             text: "cmdfbsj4 : " + cmdfbsj4Pin.value
             HalPin {
                 id: cmdfbsj4Pin
-                name: "cmdfbsj4"
+                name: "joint.4.cmdfbs"
                 direction: HalPin.In
                 type: HalPin.S32
             }
@@ -758,7 +758,7 @@ Tab {
             text: "cmdfbsj5 : " + cmdfbsj5Pin.value
             HalPin {
                 id: cmdfbsj5Pin
-                name: "cmdfbsj5"
+                name: "joint.5.cmdfbs"
                 direction: HalPin.In
                 type: HalPin.S32
             }

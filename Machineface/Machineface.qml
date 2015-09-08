@@ -106,8 +106,8 @@ ServiceWindow {
         /*PreviewTab { }*/
 //        VideoTab { }
 //        SettingsTab { }
-        ExtrasTab { }
-        ANDDemo { }
+//        ExtrasTab { }
+//        ANDDemo { }
         Signals{}
     }
 
