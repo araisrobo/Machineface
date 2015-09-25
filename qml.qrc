@@ -32,5 +32,8 @@
         <file>Machineface/ANDDemo.qml</file>
         <file>Machineface/Signals.qml</file>
         <file>Machineface/ExtrasTab.qml</file>
+        <file>Machineface/Signals_Analog.qml</file>
+        <file>Machineface/Signals_Debug.qml</file>
+        <file>Machineface/Signals_GPIO.qml</file>
     </qresource>
 </RCC>

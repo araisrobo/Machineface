@@ -108,7 +108,9 @@ ServiceWindow {
 //        SettingsTab { }
 //        ExtrasTab { }
 //        ANDDemo { }
-        Signals{}
+        Signals{
+            id:signalTab
+        }
     }
 
     DisplayPanel {
@@ -118,6 +120,7 @@ ServiceWindow {
         anchors.bottom: applicationProgressBar.top
         width: parent.width * 0.25
         anchors.margins: Screen.pixelDensity
+        visible: !signalTab.visible
     }
 
     ApplicationProgressBar {
