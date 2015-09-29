@@ -1121,7 +1121,7 @@ Tab {
             flat: false
 
             property int namescale: (main.width / 22)
-            property int valuescale: ((groupbox2.width - spacetext.width) / 5.2)
+            property int valuescale: ((groupbox2.width - spacetext.width) / 6)
             //***************************************************
             // Parameters(name)
             //***************************************************
@@ -1171,6 +1171,14 @@ Tab {
                 Text {
                     id: velfbtext
                     text: qsTr("vel-fb")
+                    font.pixelSize: fontSize
+                    font.bold: true
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    id: ferrortext
+                    text: qsTr("ferror")
                     font.pixelSize: fontSize
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
@@ -1255,6 +1263,18 @@ Tab {
                         type: HalPin.Float
                     }
                 }
+                Text {//ferrorj0
+                    text: j0_ferror.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                    HalPin {
+                        id: j0_ferror
+                        name: "joint.0.ferror"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
+                }
             }
             //***************************************************
             // Parameters(value)-J1
@@ -1330,6 +1350,18 @@ Tab {
                     HalPin {
                         id: j1_vel_fb
                         name: "joint.1.vel-fb"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
+                }
+                Text {//ferrorj1
+                    text: j1_ferror.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                    HalPin {
+                        id: j1_ferror
+                        name: "joint.1.ferror"
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -1413,6 +1445,18 @@ Tab {
                         type: HalPin.Float
                     }
                 }
+                Text {//ferrorj2
+                    text: j2_ferror.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                    HalPin {
+                        id: j2_ferror
+                        name: "joint.2.ferror"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
+                }
             }
             //***************************************************
             // Parameters(value)-J3
@@ -1488,6 +1532,18 @@ Tab {
                     HalPin {
                         id: j3_vel_fb
                         name: "joint.3.vel-fb"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
+                }
+                Text {//ferrorj3
+                    text: j3_ferror.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                    HalPin {
+                        id: j3_ferror
+                        name: "joint.3.ferror"
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -1571,6 +1627,18 @@ Tab {
                         type: HalPin.Float
                     }
                 }
+                Text {//ferrorj4
+                    text: j4_ferror.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                    HalPin {
+                        id: j4_ferror
+                        name: "joint.4.ferror"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
+                }
             }
             //***************************************************
             // Parameters(value)-J5
@@ -1650,6 +1718,18 @@ Tab {
                         type: HalPin.Float
                     }
                 }
+                Text {//ferrorj5
+                    text: j5_ferror.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox3.valuescale
+                    horizontalAlignment: Text.AlignRight
+                    HalPin {
+                        id: j5_ferror
+                        name: "joint.5.ferror"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
+                }
             }
         }//GroupBox{Parameters)
         //***************************************************
@@ -1661,15 +1741,15 @@ Tab {
             anchors.top: groupbox3.bottom
             anchors.left: gpiotab.left
             flat: false
-            property int namescale: (main.width / 22)
-            property int valuescale: ((groupbox2.width - spacetext.width) / 5.2)
+            property int namescale: (main.width / 24)
+            property int valuescale: ((groupbox2.width - spindletext.width) / 9.5)
             //***************************************************
             // Spindle(name)
             //***************************************************
             RowLayout{
                 id: rowLayout14
                 Text {
-                    id: sbidotext
+                    id: spindletext
                     text: qsTr("")
                     font.pixelSize: fontSize
                     font.bold: true
@@ -1677,17 +1757,40 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {
-                    id: stext
-                    text: qsTr("spindle_ON")
+                    id: sontext
+                    text: qsTr("ON")
                     font.pixelSize: fontSize
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
-
                 }
                 Text {
-                    id: svelcmdtext
-                    text: qsTr("vel-cmd")
+                    id: sforwardtext
+                    text: qsTr("forward")
+                    font.pixelSize: fontSize
+                    font.bold: true
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    id: sreversrtext
+                    text: qsTr("reverse")
+                    font.pixelSize: fontSize
+                    font.bold: true
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    id: satspeedtext
+                    text: qsTr("at-speed")
+                    font.pixelSize: fontSize
+                    font.bold: true
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    id: sbraketext
+                    text: qsTr("brake")
                     font.pixelSize: fontSize
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
@@ -1696,6 +1799,14 @@ Tab {
                 Text {
                     id: svelfbtext
                     text: qsTr("vel-fb")
+                    font.pixelSize: fontSize
+                    font.bold: true
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
+                }
+                Text {
+                    id: svelcmdtext
+                    text: qsTr("vel-cmd")
                     font.pixelSize: fontSize
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
@@ -1721,82 +1832,141 @@ Tab {
             //***************************************************
             // Spindle(value)-S0
             //***************************************************
-//            RowLayout{
-//                id:rowLayout15
-//                height: rowLayout14.height
-//                spacing: ledspacing
-//                x: spacetext.x
-//                y: rowLayout14.y + rowLayout14.height + ledspacing
+            RowLayout{
+                id:rowLayout15
+                height: rowLayout14.height
+                spacing: ledspacing
+                x: spacetext.x
+                y: rowLayout14.y + rowLayout14.height + ledspacing
 
-//                Text {
-//                    id: s0text
-//                    text: qsTr("S0")
-//                    font.pixelSize: fontSize
-//                    font.bold: true
-//                    Layout.preferredWidth: groupbox3.namescale
-//                    horizontalAlignment: Text.AlignRight
-//                }
-//                Text {//S0spindle-on
-//                    text: s0spindleonPin.value
-//                    font.pixelSize: fontSize
-//                    Layout.preferredWidth: groupbox3.valuescale
-//                    horizontalAlignment: Text.AlignRight
+                Text {
+                    id: s0text
+                    text: qsTr("S0")
+                    font.pixelSize: fontSize
+                    font.bold: true
+                    Layout.preferredWidth: groupbox4.namescale
+                    horizontalAlignment: Text.AlignRight
+                }
+                //***************************************************
+                // spindle-on(s0)
+                //***************************************************
+                Text {//S0spindle-on pos
+                    id: sonpos
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale
+                }
+                HalLed{//S0spindle-on
+                    anchors.right: sonpos.right
+                    Layout.preferredWidth : ledSize
+                    Layout.preferredHeight : ledSize
+                    name: "spindle-on"
+                }
+                //***************************************************
+                // spindle-forward(s0)
+                //***************************************************
+                Text {//S0spindle-forward pos
+                    id: sforwardpos
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
+                }
+                HalLed{//S0spindle-forward
+                    anchors.right: sforwardpos.right
+                    Layout.preferredWidth : ledSize
+                    Layout.preferredHeight : ledSize
+                    name: "spindle-forward"
+                }
+                //***************************************************
+                // spindle-reverse(s0)
+                //***************************************************
+                Text {//S0spindle-reverse pos
+                    id: sreversepos
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
+                }
+                HalLed{//S0spindle-reverse
+                    anchors.right: sreversepos.right
+                    Layout.preferredWidth : ledSize
+                    Layout.preferredHeight : ledSize
+                    name: "spindle-reverse"
+                }
+                //***************************************************
+                // spindle-at-speed(s0)
+                //***************************************************
+                Text {//S0spindle-at-speed pos
+                    id: satspeedpos
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
+                }
+                HalLed{//S0spindle-at-speed
+                    anchors.right: satspeedpos.right
+                    Layout.preferredWidth : ledSize
+                    Layout.preferredHeight : ledSize
+                    name: "spindle-at-speed"
+                }
+                //***************************************************
+                // spindle-brake(s0)
+                //***************************************************
+                Text {//S0spindle-brake pos
+                    id: sbrakepos
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
+                }
+                HalLed{//S0spindle-brake
+                    anchors.right: sbrakepos.right
+                    Layout.preferredWidth : ledSize
+                    Layout.preferredHeight : ledSize
+                    name: "spindle-brake"
+                }
+
+                Text {//s0_vel_fb
+                    text: s0_vel_fb.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
 //                    HalPin {
-//                        id: s0spindleonPin
-//                        name: "joint.5.cmd-pos"
-//                        direction: HalPin.In
-//                        type: HalPin.S32
-//                    }
-//                }
-//                Text {//S0spindle
-//                    text: j5_enc_pos.value
-//                    font.pixelSize: fontSize
-//                    Layout.preferredWidth: groupbox3.valuescale
-//                    horizontalAlignment: Text.AlignRight
-//                    HalPin {
-//                        id: j5_enc_pos
-//                        name: "joint.5.enc-pos"
-//                        direction: HalPin.In
-//                        type: HalPin.S32
-//                    }
-//                }
-//                Text {//poscmdj5
-//                    text: j5_pos_cmd.value.toFixed(2)
-//                    font.pixelSize: fontSize
-//                    Layout.preferredWidth: groupbox3.valuescale
-//                    horizontalAlignment: Text.AlignRight
-//                    HalPin {
-//                        id: j5_pos_cmd
-//                        name: "joint.5.pos-cmd"
+//                        id: s0_vel_fb
+//                        name: "joint.5.ferror"//"spindle-vel-fb"
 //                        direction: HalPin.In
 //                        type: HalPin.Float
 //                    }
-//                }
-//                Text {//posfbj5
-//                    text: j5_pos_fb.value.toFixed(2)
-//                    font.pixelSize: fontSize
-//                    Layout.preferredWidth: groupbox3.valuescale
-//                    horizontalAlignment: Text.AlignRight
+                }
+                Text {//s0_vel_cmd
+                    text: s0_vel_cmd.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
 //                    HalPin {
-//                        id: j5_pos_fb
-//                        name: "joint.5.pos-fb"
+//                        id: s0_vel_cmd
+//                        name: "joint.5.ferror"//"spindle-vel-cmd"
 //                        direction: HalPin.In
 //                        type: HalPin.Float
 //                    }
-//                }
-//                Text {//velfbj5
-//                    text: j5_vel_fb.value.toFixed(2)
-//                    font.pixelSize: fontSize
-//                    Layout.preferredWidth: groupbox3.valuescale
-//                    horizontalAlignment: Text.AlignRight
+                }
+                Text {//s0_pos_cmd
+                    text: s0_pos_cmd.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
 //                    HalPin {
-//                        id: j5_vel_fb
-//                        name: "joint.5.vel-fb"
+//                        id: s0_pos_cmd
+//                        name: "joint.5.ferror"//"spindle-pos-cmd"
 //                        direction: HalPin.In
 //                        type: HalPin.Float
 //                    }
-//                }
-//            }
+                }
+                Text {//s0_pos_fb
+                    text: s0_pos_fb.value.toFixed(2)
+                    font.pixelSize: fontSize
+                    Layout.preferredWidth: groupbox4.valuescale
+                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: s0_pos_fb
+//                        name: "joint.5.ferror"//"spindle-pos-fb"
+//                        direction: HalPin.In
+//                        type: HalPin.Float
+//                    }
+                }
+            }
         }//GroupBox{Parameters)
     }//Item{
 }
