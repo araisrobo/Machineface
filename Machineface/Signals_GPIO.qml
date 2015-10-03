@@ -23,6 +23,7 @@ Tab {
             anchors.top: gpiotab.top
             anchors.left: gpiotab.left
             flat: false
+            width: rowLayout1_1.width + rowLayout1_2.width + rowLayout1_3.width + rowLayout1_4.width
             //***************************************************
             // Input 00-31
             //***************************************************
@@ -34,7 +35,7 @@ Tab {
                 Text {
                     id: text1_1
                     text: qsTr("31")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
                 HalLed{
                     Layout.preferredWidth : ledSize
@@ -220,7 +221,7 @@ Tab {
                 Text {
                     id: text1_4
                     text: qsTr("00")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
             }
             //***************************************************
@@ -236,7 +237,7 @@ Tab {
                 Text {
                     id: text2_1
                     text: qsTr("63")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
                 HalLed{
                     Layout.preferredWidth : ledSize
@@ -375,7 +376,6 @@ Tab {
                     name:"gpio.in.40"
                 }
             }
-
             RowLayout{
                 id: rowLayout2_4
                 height: ledSize
@@ -426,7 +426,7 @@ Tab {
                 Text {
                     id: text2_4
                     text: qsTr("32")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
             }
             //***************************************************
@@ -442,7 +442,7 @@ Tab {
                 Text {
                     id: text3_1
                     text: qsTr("95")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
                 HalLed{
                     Layout.preferredWidth : ledSize
@@ -631,7 +631,7 @@ Tab {
                 Text {
                     id: text3_4
                     text: qsTr("64")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
             }
         }//GroupBox{GPIO (input)
@@ -656,7 +656,7 @@ Tab {
                 Text {
                     id: text4_1
                     text: qsTr("31")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
                 HalLed{
                     Layout.preferredWidth : ledSize
@@ -842,7 +842,7 @@ Tab {
                 }
                 Text {
                     text: qsTr("00")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
             }
             //***************************************************
@@ -857,7 +857,7 @@ Tab {
 
                 Text {
                     text: qsTr("63")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
                 HalLed{
                     Layout.preferredWidth : ledSize
@@ -1045,7 +1045,7 @@ Tab {
                 }
                 Text {
                     text: qsTr("32")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
             }
             //***************************************************
@@ -1060,7 +1060,7 @@ Tab {
 
                 Text {
                     text: qsTr("71")
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
 
                 HalLed{
@@ -1106,7 +1106,7 @@ Tab {
                 Text {
                     text: qsTr("64")
                     textFormat: Text.AutoText
-                    font.pixelSize: fontSize * 0.7
+                    font.pixelSize: fontSize
                 }
             }
         }//GroupBox{GPIO (output)
@@ -1120,8 +1120,8 @@ Tab {
             anchors.left: gpiotab.left
             flat: false
 
-            property int namescale: (main.width / 22)
-            property int valuescale: ((groupbox2.width - spacetext.width) / 6)
+            property int namescale: (groupbox1.width / 22)
+            property int valuescale: ((groupbox1.width - spacetext.width) / 6)
             //***************************************************
             // Parameters(name)
             //***************************************************
@@ -1130,7 +1130,7 @@ Tab {
                 Text {
                     id: spacetext
                     text: qsTr("")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
@@ -1138,7 +1138,7 @@ Tab {
                 Text {
                     id: mototcmdtext
                     text: qsTr("cmd-pos")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1147,7 +1147,7 @@ Tab {
                 Text {
                     id: encpostext
                     text: qsTr("enc-pos")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1155,7 +1155,7 @@ Tab {
                 Text {
                     id: poscmdtext
                     text: qsTr("pos-cmd")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1163,7 +1163,7 @@ Tab {
                 Text {
                     id: posfbtext
                     text: qsTr("pos-fb")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1171,7 +1171,7 @@ Tab {
                 Text {
                     id: velfbtext
                     text: qsTr("vel-fb")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1179,7 +1179,7 @@ Tab {
                 Text {
                     id: ferrortext
                     text: qsTr("ferror")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1193,19 +1193,18 @@ Tab {
                 height: rowLayout7.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout7.y + rowLayout7.height + ledspacing
-
+                y: rowLayout7.y + rowLayout7.height + textspacing_h
                 Text {
                     id: j0text
                     text: qsTr("J0")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {//j0_cmd_pos
                     text: j0_cmd_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1217,7 +1216,7 @@ Tab {
                 }
                 Text {//encposj0
                     text: j0_enc_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1229,7 +1228,7 @@ Tab {
                 }
                 Text {//poscmdj0
                     text: j0_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1241,7 +1240,7 @@ Tab {
                 }
                 Text {//posfbj0
                     text: j0_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1253,7 +1252,7 @@ Tab {
                 }
                 Text {//velfbj0
                     text: j0_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1265,7 +1264,7 @@ Tab {
                 }
                 Text {//ferrorj0
                     text: j0_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1284,19 +1283,19 @@ Tab {
                 height: rowLayout8.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout8.y + rowLayout8.height + ledspacing
+                y: rowLayout8.y + rowLayout8.height + textspacing_h
 
                 Text {
                     id: j1text
                     text: qsTr("J1")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {//j1_cmd_pos
                     text: j1_cmd_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1308,7 +1307,7 @@ Tab {
                 }
                 Text {//encposj1
                     text: j1_enc_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1320,7 +1319,7 @@ Tab {
                 }
                 Text {//poscmdj1
                     text: j1_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1332,7 +1331,7 @@ Tab {
                 }
                 Text {//posfbj1
                     text: j1_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1344,7 +1343,7 @@ Tab {
                 }
                 Text {//velfbj1
                     text: j1_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1356,7 +1355,7 @@ Tab {
                 }
                 Text {//ferrorj1
                     text: j1_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1375,19 +1374,19 @@ Tab {
                 height: rowLayout9.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout9.y + rowLayout9.height + ledspacing
+                y: rowLayout9.y + rowLayout9.height + textspacing_h
 
                 Text {
                     id: j2text
                     text: qsTr("J2")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {//j2_cmd_pos
                     text: j2_cmd_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1399,7 +1398,7 @@ Tab {
                 }
                 Text {//encposj2
                     text: j2_enc_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1411,7 +1410,7 @@ Tab {
                 }
                 Text {//poscmdj2
                     text: j2_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1423,7 +1422,7 @@ Tab {
                 }
                 Text {//posfbj2
                     text: j2_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1435,7 +1434,7 @@ Tab {
                 }
                 Text {//velfbj2
                     text: j2_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1447,7 +1446,7 @@ Tab {
                 }
                 Text {//ferrorj2
                     text: j2_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1466,19 +1465,19 @@ Tab {
                 height: rowLayout10.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout10.y + rowLayout10.height + ledspacing
+                y: rowLayout10.y + rowLayout10.height + textspacing_h
 
                 Text {
                     id: j3text
                     text: qsTr("J3")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {//j3_cmd_pos
                     text: j3_cmd_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1490,7 +1489,7 @@ Tab {
                 }
                 Text {//encposj3
                     text: j3_enc_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1502,7 +1501,7 @@ Tab {
                 }
                 Text {//poscmdj3
                     text: j3_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1514,7 +1513,7 @@ Tab {
                 }
                 Text {//posfbj3
                     text: j3_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1526,7 +1525,7 @@ Tab {
                 }
                 Text {//velfbj3
                     text: j3_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1538,7 +1537,7 @@ Tab {
                 }
                 Text {//ferrorj3
                     text: j3_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1557,19 +1556,19 @@ Tab {
                 height: rowLayout11.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout11.y + rowLayout11.height + ledspacing
+                y: rowLayout11.y + rowLayout11.height + textspacing_h
 
                 Text {
                     id: j4text
                     text: qsTr("J4")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {//j4_cmd_pos
                     text: j4_cmd_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1581,7 +1580,7 @@ Tab {
                 }
                 Text {//encposj4
                     text: j4_enc_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1593,7 +1592,7 @@ Tab {
                 }
                 Text {//poscmdj4
                     text: j4_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1605,7 +1604,7 @@ Tab {
                 }
                 Text {//posfbj4
                     text: j4_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1617,7 +1616,7 @@ Tab {
                 }
                 Text {//velfbj4
                     text: j4_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1629,7 +1628,7 @@ Tab {
                 }
                 Text {//ferrorj4
                     text: j4_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1648,19 +1647,19 @@ Tab {
                 height: rowLayout12.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout12.y + rowLayout12.height + ledspacing
+                y: rowLayout12.y + rowLayout12.height + textspacing_h
 
                 Text {
                     id: j5text
                     text: qsTr("J5")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
                 }
                 Text {//j5_cmd_pos
                     text: j5_cmd_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1672,7 +1671,7 @@ Tab {
                 }
                 Text {//encposj5
                     text: j5_enc_pos.value
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1684,7 +1683,7 @@ Tab {
                 }
                 Text {//poscmdj5
                     text: j5_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1696,7 +1695,7 @@ Tab {
                 }
                 Text {//posfbj5
                     text: j5_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1708,7 +1707,7 @@ Tab {
                 }
                 Text {//velfbj5
                     text: j5_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1720,7 +1719,7 @@ Tab {
                 }
                 Text {//ferrorj5
                     text: j5_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
                     HalPin {
@@ -1743,6 +1742,7 @@ Tab {
             flat: false
             property int namescale: (main.width / 24)
             property int valuescale: ((groupbox2.width - spindletext.width) / 9.5)
+
             //***************************************************
             // Spindle(name)
             //***************************************************
@@ -1751,7 +1751,7 @@ Tab {
                 Text {
                     id: spindletext
                     text: qsTr("")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.namescale
                     horizontalAlignment: Text.AlignRight
@@ -1759,7 +1759,7 @@ Tab {
                 Text {
                     id: sontext
                     text: qsTr("ON")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1767,7 +1767,7 @@ Tab {
                 Text {
                     id: sforwardtext
                     text: qsTr("forward")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1775,7 +1775,7 @@ Tab {
                 Text {
                     id: sreversrtext
                     text: qsTr("reverse")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1783,7 +1783,7 @@ Tab {
                 Text {
                     id: satspeedtext
                     text: qsTr("at-speed")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1791,7 +1791,7 @@ Tab {
                 Text {
                     id: sbraketext
                     text: qsTr("brake")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1799,7 +1799,7 @@ Tab {
                 Text {
                     id: svelfbtext
                     text: qsTr("vel-fb")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1807,7 +1807,7 @@ Tab {
                 Text {
                     id: svelcmdtext
                     text: qsTr("vel-cmd")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1815,7 +1815,7 @@ Tab {
                 Text {
                     id: sposcmdtext
                     text: qsTr("pos-cmd")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1823,7 +1823,7 @@ Tab {
                 Text {
                     id: sposfbtext
                     text: qsTr("pos-fb")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
@@ -1837,12 +1837,12 @@ Tab {
                 height: rowLayout14.height
                 spacing: ledspacing
                 x: spacetext.x
-                y: rowLayout14.y + rowLayout14.height + ledspacing
+                y: rowLayout14.y + rowLayout14.height + textspacing_h
 
                 Text {
                     id: s0text
                     text: qsTr("S0")
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox4.namescale
                     horizontalAlignment: Text.AlignRight
@@ -1850,13 +1850,14 @@ Tab {
                 //***************************************************
                 // spindle-on(s0)
                 //***************************************************
-                Text {//S0spindle-on pos
-                    id: sonpos
-                    font.pixelSize: fontSize
-                    Layout.preferredWidth: groupbox4.valuescale
-                }
+//                Text {//S0spindle-on pos
+//                    id: sonpos
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox4.valuescale
+//                }
                 HalLed{//S0spindle-on
-                    anchors.right: sonpos.right
+                    anchors.right: sontext.Center
+                    anchors.top: sontext.bottom
                     Layout.preferredWidth : ledSize
                     Layout.preferredHeight : ledSize
                     name: "spindle-on"
@@ -1864,11 +1865,12 @@ Tab {
                 //***************************************************
                 // spindle-forward(s0)
                 //***************************************************
-                Text {//S0spindle-forward pos
-                    id: sforwardpos
-                    font.pixelSize: fontSize
-                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
-                }
+//                Text {//S0spindle-forward pos
+//                    id: sforwardpos
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox4.valuescale //- ledSize -ledspacing
+//                    //anchors.right: sforwardpos.right
+//                }
                 HalLed{//S0spindle-forward
                     anchors.right: sforwardpos.right
                     Layout.preferredWidth : ledSize
@@ -1878,13 +1880,13 @@ Tab {
                 //***************************************************
                 // spindle-reverse(s0)
                 //***************************************************
-                Text {//S0spindle-reverse pos
-                    id: sreversepos
-                    font.pixelSize: fontSize
-                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
-                }
+//                Text {//S0spindle-reverse pos
+//                    id: sreversepos
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox4.valuescale// - ledSize -ledspacing
+//                }
                 HalLed{//S0spindle-reverse
-                    anchors.right: sreversepos.right
+//                    anchors.right: sreversepos.right
                     Layout.preferredWidth : ledSize
                     Layout.preferredHeight : ledSize
                     name: "spindle-reverse"
@@ -1892,13 +1894,13 @@ Tab {
                 //***************************************************
                 // spindle-at-speed(s0)
                 //***************************************************
-                Text {//S0spindle-at-speed pos
-                    id: satspeedpos
-                    font.pixelSize: fontSize
-                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
-                }
+//                Text {//S0spindle-at-speed pos
+//                    id: satspeedpos
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox4.valuescale //- ledSize -ledspacing
+//                }
                 HalLed{//S0spindle-at-speed
-                    anchors.right: satspeedpos.right
+//                    anchors.right: satspeedpos.right
                     Layout.preferredWidth : ledSize
                     Layout.preferredHeight : ledSize
                     name: "spindle-at-speed"
@@ -1906,13 +1908,13 @@ Tab {
                 //***************************************************
                 // spindle-brake(s0)
                 //***************************************************
-                Text {//S0spindle-brake pos
-                    id: sbrakepos
-                    font.pixelSize: fontSize
-                    Layout.preferredWidth: groupbox4.valuescale - ledSize -ledspacing
-                }
+//                Text {//S0spindle-brake pos
+//                    id: sbrakepos
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox4.valuescale// - ledSize -ledspacing
+//                }
                 HalLed{//S0spindle-brake
-                    anchors.right: sbrakepos.right
+//                    anchors.right: sbrakepos.right
                     Layout.preferredWidth : ledSize
                     Layout.preferredHeight : ledSize
                     name: "spindle-brake"
@@ -1920,51 +1922,52 @@ Tab {
 
                 Text {//s0_vel_fb
                     text: s0_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
-//                    HalPin {
-//                        id: s0_vel_fb
-//                        name: "joint.5.ferror"//"spindle-vel-fb"
-//                        direction: HalPin.In
-//                        type: HalPin.Float
-//                    }
+                    HalPin {
+                        id: s0_vel_fb
+                        name: "spindle.0.vel-fb"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
                 }
                 Text {//s0_vel_cmd
                     text: s0_vel_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
-//                    HalPin {
-//                        id: s0_vel_cmd
-//                        name: "joint.5.ferror"//"spindle-vel-cmd"
-//                        direction: HalPin.In
-//                        type: HalPin.Float
-//                    }
+                    HalPin {
+                        id: s0_vel_cmd
+                        name: "spindle.0.vel-cmd"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
                 }
                 Text {//s0_pos_cmd
                     text: s0_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
-//                    HalPin {
-//                        id: s0_pos_cmd
-//                        name: "joint.5.ferror"//"spindle-pos-cmd"
-//                        direction: HalPin.In
-//                        type: HalPin.Float
-//                    }
+                    HalPin {
+                        id: s0_pos_cmd
+                        name: "spindle.0.pos-cmd"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
                 }
                 Text {//s0_pos_fb
                     text: s0_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize
+                    font.pixelSize: fontSize * zoom_add
                     Layout.preferredWidth: groupbox4.valuescale
                     horizontalAlignment: Text.AlignRight
-//                    HalPin {
-//                        id: s0_pos_fb
-//                        name: "joint.5.ferror"//"spindle-pos-fb"
-//                        direction: HalPin.In
-//                        type: HalPin.Float
-//                    }
+                    anchors.right: sposfbtext.right
+                    HalPin {
+                        id: s0_pos_fb
+                        name: "spindle.0.pos-fb"
+                        direction: HalPin.In
+                        type: HalPin.Float
+                    }
                 }
             }
         }//GroupBox{Parameters)

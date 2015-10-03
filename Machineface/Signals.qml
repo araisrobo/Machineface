@@ -18,10 +18,13 @@ Tab {
         title: "My HAL application"
         name: "signals"
         anchors.right: parent.right
-        property int baseSize: Math.min(width, height)
-        property int ledSize: width * 0.032
-        property int fontSize: baseSize * 0.03
-        property int ledspacing: ledSize * 0.2
+        property double basewidth: (window.width - window.height * 0.1).toFixed((2))
+        property double ledSize: (basewidth - ledspacing * 36 - textwidth.width) / 37
+        property double fontSize: basewidth * 0.015
+        property double ledspacing: basewidth * 0.005
+        property double zoom_add: 1.4
+        property double textspacing_h: 0//height * 0.0075
+
 
         TabView {
             id: mainTab
@@ -37,15 +40,20 @@ Tab {
             Signals_Analog{}
             Signals_Debug{}
         }
-
+        Text{
+            id: textwidth
+            text: "00"
+            font.pixelSize: fontSize
+            visible: false
+        }
         //***************************************************
         // BP-TICK
         //***************************************************
         Text {//bptick
             id: bptickValue
-            text: "bp-tick : " + bptickPin.value
-            font.pixelSize: fontSize
-            x: (applicationProgressBar.x + applicationProgressBar.width) - bptickValue.width * 1.5
+            text: "bp-tick : " + bptickPin.value + " "
+            font.pixelSize: fontSize * zoom_add
+            x: basewidth - bptickValue.width
             y: bptickValue.height * 0.5
             horizontalAlignment: Text.AlignRight
             HalPin {
