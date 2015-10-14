@@ -13,7 +13,7 @@ Tab {
     title: qsTr("Analog")
     active: true
     Item{
-        property double valuescale: (main.width / 3)
+        property double valuescale: ((main.basewidth - 50) / 4).toFixed(2)
         //***************************************************
         // Analog (input)
         //***************************************************

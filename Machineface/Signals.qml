@@ -22,7 +22,7 @@ Tab {
         property double ledSize: (basewidth - ledspacing * 36 - textwidth.width) / 37
         property double fontSize: basewidth * 0.015
         property double ledspacing: basewidth * 0.005
-        property double zoom_add: 1.4
+        property double zoom_add: 1
         property double textspacing_h: 0//height * 0.0075
 
 
