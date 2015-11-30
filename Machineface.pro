@@ -2,7 +2,11 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    src/scriptlauncher.cpp
+
+HEADERS += \
+    src/scriptlauncher.h
 
 RESOURCES += qml.qrc
 
