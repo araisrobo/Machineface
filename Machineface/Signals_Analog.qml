@@ -12,16 +12,21 @@ Tab {
     anchors.top:parent.top
     title: qsTr("Analog")
     active: true
+
+    property double basewidth: (window.width - window.height * 0.1).toFixed((2))
+    property double ledSize: (basewidth - ledspacing * 36) / 37
+    property double ledspacing: basewidth * 0.005
+    property int baseSize: Math.min(width, height)
+    property int fontSize: baseSize * 0.2
+    property double valuescale: ((basewidth - 50) / 4).toFixed(2)
+
     Item{
-        property double valuescale: ((main.basewidth - 50) / 4).toFixed(2)
         //***************************************************
         // Analog (input)
         //***************************************************
         GroupBox{
             id: groupbox1
             title: qsTr("Analog Input  ")
-            anchors.top: analogtab.top
-            anchors.left: analogtab.left
             flat: false
             //***************************************************
             // Input 00-03
@@ -247,7 +252,6 @@ Tab {
             id: groupbox2
             title: qsTr("Analog Output  ")
             anchors.top: groupbox1.bottom
-            anchors.left: analogtab.left
             flat: false
             //***************************************************
             // Output 00-03
@@ -310,7 +314,6 @@ Tab {
             id: groupbox3
             title: qsTr("Analog Output Feedback  ")
             anchors.top: groupbox2.bottom
-            anchors.left: analogtab.left
             flat: false
             //***************************************************
             // Output 00-03

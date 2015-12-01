@@ -10,17 +10,20 @@ Tab{
     anchors.top:parent.top
     title: qsTr("Debug")
     active: true
+    property double basewidth: (window.width - window.height * 0.1).toFixed((2))
+    property double ledSize: (basewidth - ledspacing * 36) / 37
+    property double ledspacing: basewidth * 0.005
+    property int baseSize: Math.min(width, height)
+    property int fontSize: baseSize * 0.2
+    property double valuescale: ((basewidth - 50) / 4).toFixed(2)
 
     Item {
-        property double valuescale: ((main.basewidth - 50) / 4).toFixed(2)
         //***************************************************
         // Debug (value)
         //***************************************************
         GroupBox {
             id: groupbox1
             title: qsTr("Debug  ")
-            anchors.top: debugtab.top
-            anchors.left: debugtab.left
             flat: false
 
             //***************************************************

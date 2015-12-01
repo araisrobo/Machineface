@@ -108,9 +108,9 @@ ServiceWindow {
 //        SettingsTab { }
 //        ExtrasTab { }
 //        ANDDemo { }
-//        Signals{
-//            id:signalTab
-//        }
+        Signals{
+            id:signalTab
+        }
     }
 
     DisplayPanel {
