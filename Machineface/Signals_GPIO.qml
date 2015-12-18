@@ -23,6 +23,12 @@ Tab {
     property int fontSize: baseSize * 0.12
 
     Item{// 當有GroupBox有兩組以上,需要Item來支援
+        HalPin {
+            id: joints
+            name: "joints"
+            direction: HalPin.In
+            type: HalPin.U32
+        }
         //***************************************************
         // GPIO (intput)
         //***************************************************
@@ -2035,7 +2041,8 @@ Tab {
                 height: rowLayout14.height
                 spacing: 0
                 y: rowLayout14.y + rowLayout14.height + textspacing_h
-
+                visible: (joints.value > 7) ? true : false
+                property bool j7enable: (joints.value > 7) ? true : false
                 Text {
                     id: j7text
                     text: qsTr("J7")
@@ -2052,6 +2059,7 @@ Tab {
                     HalPin {
                         id: j7_cmd_pos
                         name: "joint.7.cmd-pos"
+                        enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -2064,6 +2072,7 @@ Tab {
                     HalPin {
                         id: j7_enc_pos
                         name: "joint.7.enc-pos"
+                        enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -2076,6 +2085,7 @@ Tab {
                     HalPin {
                         id: j7_pos_cmd
                         name: "joint.7.pos-cmd"
+                        enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -2088,6 +2098,7 @@ Tab {
                     HalPin {
                         id: j7_pos_fb
                         name: "joint.7.pos-fb"
+                        enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -2100,6 +2111,7 @@ Tab {
                     HalPin {
                         id: j7_vel_fb
                         name: "joint.7.vel-fb"
+                        enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -2112,6 +2124,7 @@ Tab {
                     HalPin {
                         id: j7_ferror
                         name: "joint.7.ferror"
+                        enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
