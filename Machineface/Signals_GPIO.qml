@@ -1356,7 +1356,7 @@ Tab {
                 }
                 Text {
                     id: mototcmdtext
-                    text: qsTr("cmd-pos")
+                    text: qsTr("risc-pos-cmd-pulse")
                     font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
@@ -1427,7 +1427,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j0_cmd_pos
-                        name: "joint.0.cmd-pos"
+                        name: "joint.0.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1517,7 +1517,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j1_cmd_pos
-                        name: "joint.1.cmd-pos"
+                        name: "joint.1.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1607,7 +1607,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j2_cmd_pos
-                        name: "joint.2.cmd-pos"
+                        name: "joint.2.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1697,7 +1697,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j3_cmd_pos
-                        name: "joint.3.cmd-pos"
+                        name: "joint.3.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1787,7 +1787,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j4_cmd_pos
-                        name: "joint.4.cmd-pos"
+                        name: "joint.4.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1877,7 +1877,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j5_cmd_pos
-                        name: "joint.5.cmd-pos"
+                        name: "joint.5.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1967,7 +1967,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j6_cmd_pos
-                        name: "joint.6.cmd-pos"
+                        name: "joint.6.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -2058,7 +2058,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j7_cmd_pos
-                        name: "joint.7.cmd-pos"
+                        name: "joint.7.risc-pos-cmd-pulse"
                         enabled: rowLayout15.j7enable
                         direction: HalPin.In
                         type: HalPin.S32
