@@ -27,9 +27,14 @@ Tab {
         // GPIO (intput)
         //***************************************************
         GroupBox{
+            style: GroupBoxStyle {
+                // padding.left: 0 //your desired padding value
+            }
             id: groupbox1
             title: qsTr("Digitial Input  ")
             flat: false
+            checkable:false
+            checked:false
             anchors.top: parent.top
             //***************************************************
             // Input 00-31
@@ -675,6 +680,9 @@ Tab {
         // GPIO (output)
         //***************************************************
         GroupBox{
+            style: GroupBoxStyle {
+                // padding.left: 0 //your desired padding value
+            }
             id: groupbox2
             title: qsTr("Digitial Output  ")
             flat: false
@@ -1327,6 +1335,9 @@ Tab {
         //***************************************************
 
         GroupBox{
+            style: GroupBoxStyle {
+                // padding.left: 0 //your desired padding value
+            }
             id: groupbox3
             title: qsTr("Positions  ")
             anchors.top: groupbox2.bottom
