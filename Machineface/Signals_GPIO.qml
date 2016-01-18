@@ -1872,6 +1872,8 @@ Tab {
                 height: rowLayout12.height
                 spacing: 0
                 y: rowLayout12.y + rowLayout12.height + textspacing_h
+                visible: (joints.value > 5) ? true : false
+                property bool j5enable: (joints.value > 5) ? true : false
 
                 Text {
                     id: j5text
@@ -1889,6 +1891,7 @@ Tab {
                     HalPin {
                         id: j5_cmd_pos
                         name: "joint.5.risc-pos-cmd-pulse"
+                        enabled: rowLayout13.j5enable
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1901,6 +1904,7 @@ Tab {
                     HalPin {
                         id: j5_enc_pos
                         name: "joint.5.enc-pos"
+                        enabled: rowLayout13.j5enable
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1913,6 +1917,7 @@ Tab {
                     HalPin {
                         id: j5_pos_cmd
                         name: "joint.5.pos-cmd"
+                        enabled: rowLayout13.j5enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -1925,6 +1930,7 @@ Tab {
                     HalPin {
                         id: j5_pos_fb
                         name: "joint.5.pos-fb"
+                        enabled: rowLayout13.j5enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -1937,6 +1943,7 @@ Tab {
                     HalPin {
                         id: j5_vel_fb
                         name: "joint.5.vel-fb"
+                        enabled: rowLayout13.j5enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -1949,6 +1956,7 @@ Tab {
                     HalPin {
                         id: j5_ferror
                         name: "joint.5.ferror"
+                        enabled: rowLayout13.j5enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -1962,6 +1970,8 @@ Tab {
                 height: rowLayout13.height
                 spacing: 0
                 y: rowLayout13.y + rowLayout13.height + textspacing_h
+                visible: (joints.value > 6) ? true : false
+                property bool j6enable: (joints.value > 6) ? true : false
 
                 Text {
                     id: j6text
@@ -1979,6 +1989,7 @@ Tab {
                     HalPin {
                         id: j6_cmd_pos
                         name: "joint.6.risc-pos-cmd-pulse"
+                        enabled: rowLayout14.j6enable
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1991,6 +2002,7 @@ Tab {
                     HalPin {
                         id: j6_enc_pos
                         name: "joint.6.enc-pos"
+                        enabled: rowLayout14.j6enable
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -2003,6 +2015,7 @@ Tab {
                     HalPin {
                         id: j6_pos_cmd
                         name: "joint.6.pos-cmd"
+                        enabled: rowLayout14.j6enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -2015,6 +2028,7 @@ Tab {
                     HalPin {
                         id: j6_pos_fb
                         name: "joint.6.pos-fb"
+                        enabled: rowLayout14.j6enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -2027,6 +2041,7 @@ Tab {
                     HalPin {
                         id: j6_vel_fb
                         name: "joint.6.vel-fb"
+                        enabled: rowLayout14.j6enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
@@ -2039,6 +2054,7 @@ Tab {
                     HalPin {
                         id: j6_ferror
                         name: "joint.6.ferror"
+                        enabled: rowLayout14.j6enable
                         direction: HalPin.In
                         type: HalPin.Float
                     }
