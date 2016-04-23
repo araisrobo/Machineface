@@ -23,6 +23,12 @@ Tab {
     property int fontSize: baseSize * 0.12
 
     Item{// 當有GroupBox有兩組以上,需要Item來支援
+        HalPin {
+            id: joints
+            name: "joints"
+            direction: HalPin.In
+            type: HalPin.U32
+        }
         //***************************************************
         // GPIO (intput)
         //***************************************************
@@ -1350,7 +1356,7 @@ Tab {
                 }
                 Text {
                     id: mototcmdtext
-                    text: qsTr("cmd-pos")
+                    text: qsTr("risc-pos-cmd-pulse")
                     font.pixelSize: fontSize * zoom_add
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
@@ -1421,7 +1427,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j0_cmd_pos
-                        name: "joint.0.cmd-pos"
+                        name: "joint.0.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1511,7 +1517,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j1_cmd_pos
-                        name: "joint.1.cmd-pos"
+                        name: "joint.1.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1601,7 +1607,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j2_cmd_pos
-                        name: "joint.2.cmd-pos"
+                        name: "joint.2.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1691,7 +1697,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j3_cmd_pos
-                        name: "joint.3.cmd-pos"
+                        name: "joint.3.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1781,7 +1787,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j4_cmd_pos
-                        name: "joint.4.cmd-pos"
+                        name: "joint.4.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1871,7 +1877,7 @@ Tab {
                     horizontalAlignment: Text.AlignRight
                     HalPin {
                         id: j5_cmd_pos
-                        name: "joint.5.cmd-pos"
+                        name: "joint.5.risc-pos-cmd-pulse"
                         direction: HalPin.In
                         type: HalPin.S32
                     }
@@ -1940,183 +1946,190 @@ Tab {
             //***************************************************
             // Parameters(value)-J6
             //***************************************************
-            RowLayout{
-                id:rowLayout14
-                height: rowLayout13.height
-                spacing: 0
-                y: rowLayout13.y + rowLayout13.height + textspacing_h
+           RowLayout{
+               id:rowLayout14
+               height: rowLayout13.height
+               spacing: 0
+               y: rowLayout13.y + rowLayout13.height + textspacing_h
 
-                Text {
-                    id: j6text
-                    text: qsTr("J6")
-                    font.pixelSize: fontSize * zoom_add
-                    font.bold: true
-                    Layout.preferredWidth: groupbox3.namescale
-                    horizontalAlignment: Text.AlignHCenter
-                }
-                Text {//j6_cmd_pos
-                    text: j6_cmd_pos.value
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j6_cmd_pos
-                        name: "joint.6.cmd-pos"
-                        direction: HalPin.In
-                        type: HalPin.S32
-                    }
-                }
-                Text {//encposj6
-                    text: j6_enc_pos.value
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j6_enc_pos
-                        name: "joint.6.enc-pos"
-                        direction: HalPin.In
-                        type: HalPin.S32
-                    }
-                }
-                Text {//poscmdj6
-                    text: j6_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j6_pos_cmd
-                        name: "joint.6.pos-cmd"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-                Text {//posfbj6
-                    text: j6_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j6_pos_fb
-                        name: "joint.6.pos-fb"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-                Text {//velfbj6
-                    text: j6_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j6_vel_fb
-                        name: "joint.6.vel-fb"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-                Text {//ferrorj6
-                    text: j6_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j6_ferror
-                        name: "joint.6.ferror"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-            }
-            //***************************************************
-            // Parameters(value)-J7
-            //***************************************************
-            RowLayout{
-                id:rowLayout15
-                height: rowLayout14.height
-                spacing: 0
-                y: rowLayout14.y + rowLayout14.height + textspacing_h
-
-                Text {
-                    id: j7text
-                    text: qsTr("J7")
-                    font.pixelSize: fontSize * zoom_add
-                    font.bold: true
-                    Layout.preferredWidth: groupbox3.namescale
-                    horizontalAlignment: Text.AlignHCenter
-                }
-                Text {//j7_cmd_pos
-                    text: j7_cmd_pos.value
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j7_cmd_pos
-                        name: "joint.7.cmd-pos"
-                        direction: HalPin.In
-                        type: HalPin.S32
-                    }
-                }
-                Text {//encposj7
-                    text: j7_enc_pos.value
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j7_enc_pos
-                        name: "joint.7.enc-pos"
-                        direction: HalPin.In
-                        type: HalPin.S32
-                    }
-                }
-                Text {//poscmdj7
-                    text: j7_pos_cmd.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j7_pos_cmd
-                        name: "joint.7.pos-cmd"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-                Text {//posfbj7
-                    text: j7_pos_fb.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j7_pos_fb
-                        name: "joint.7.pos-fb"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-                Text {//velfbj7
-                    text: j7_vel_fb.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j7_vel_fb
-                        name: "joint.7.vel-fb"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-                Text {//ferrorj7
-                    text: j7_ferror.value.toFixed(2)
-                    font.pixelSize: fontSize * zoom_add
-                    Layout.preferredWidth: groupbox3.valuescale
-                    horizontalAlignment: Text.AlignRight
-                    HalPin {
-                        id: j7_ferror
-                        name: "joint.7.ferror"
-                        direction: HalPin.In
-                        type: HalPin.Float
-                    }
-                }
-            }
+               Text {
+                   id: j6text
+                   text: qsTr("J6")
+                   font.pixelSize: fontSize * zoom_add
+                   font.bold: true
+                   Layout.preferredWidth: groupbox3.namescale
+                   horizontalAlignment: Text.AlignHCenter
+               }
+               Text {//j6_cmd_pos
+                   text: j6_cmd_pos.value
+                   font.pixelSize: fontSize * zoom_add
+                   Layout.preferredWidth: groupbox3.valuescale
+                   horizontalAlignment: Text.AlignRight
+                   HalPin {
+                       id: j6_cmd_pos
+                       name: "joint.6.risc-pos-cmd-pulse"
+                       direction: HalPin.In
+                       type: HalPin.S32
+                   }
+               }
+               Text {//encposj6
+                   text: j6_enc_pos.value
+                   font.pixelSize: fontSize * zoom_add
+                   Layout.preferredWidth: groupbox3.valuescale
+                   horizontalAlignment: Text.AlignRight
+                   HalPin {
+                       id: j6_enc_pos
+                       name: "joint.6.enc-pos"
+                       direction: HalPin.In
+                       type: HalPin.S32
+                   }
+               }
+               Text {//poscmdj6
+                   text: j6_pos_cmd.value.toFixed(2)
+                   font.pixelSize: fontSize * zoom_add
+                   Layout.preferredWidth: groupbox3.valuescale
+                   horizontalAlignment: Text.AlignRight
+                   HalPin {
+                       id: j6_pos_cmd
+                       name: "joint.6.pos-cmd"
+                       direction: HalPin.In
+                       type: HalPin.Float
+                   }
+               }
+               Text {//posfbj6
+                   text: j6_pos_fb.value.toFixed(2)
+                   font.pixelSize: fontSize * zoom_add
+                   Layout.preferredWidth: groupbox3.valuescale
+                   horizontalAlignment: Text.AlignRight
+                   HalPin {
+                       id: j6_pos_fb
+                       name: "joint.6.pos-fb"
+                       direction: HalPin.In
+                       type: HalPin.Float
+                   }
+               }
+               Text {//velfbj6
+                   text: j6_vel_fb.value.toFixed(2)
+                   font.pixelSize: fontSize * zoom_add
+                   Layout.preferredWidth: groupbox3.valuescale
+                   horizontalAlignment: Text.AlignRight
+                   HalPin {
+                       id: j6_vel_fb
+                       name: "joint.6.vel-fb"
+                       direction: HalPin.In
+                       type: HalPin.Float
+                   }
+               }
+               Text {//ferrorj6
+                   text: j6_ferror.value.toFixed(2)
+                   font.pixelSize: fontSize * zoom_add
+                   Layout.preferredWidth: groupbox3.valuescale
+                   horizontalAlignment: Text.AlignRight
+                   HalPin {
+                       id: j6_ferror
+                       name: "joint.6.ferror"
+                       direction: HalPin.In
+                       type: HalPin.Float
+                   }
+               }
+           }
+//            //***************************************************
+//            // Parameters(value)-J7
+//            //***************************************************
+//            RowLayout{
+//                id:rowLayout15
+//                height: rowLayout14.height
+//                spacing: 0
+//                y: rowLayout14.y + rowLayout14.height + textspacing_h
+//                visible: (joints.value > 7) ? true : false
+//                property bool j7enable: (joints.value > 7) ? true : false
+//                Text {
+//                    id: j7text
+//                    text: qsTr("J7")
+//                    font.pixelSize: fontSize * zoom_add
+//                    font.bold: true
+//                    Layout.preferredWidth: groupbox3.namescale
+//                    horizontalAlignment: Text.AlignHCenter
+//                }
+//                Text {//j7_cmd_pos
+//                    text: j7_cmd_pos.value
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox3.valuescale
+//                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: j7_cmd_pos
+//                        name: "joint.7.risc-pos-cmd-pulse"
+//                        enabled: rowLayout15.j7enable
+//                        direction: HalPin.In
+//                        type: HalPin.S32
+//                    }
+//                }
+//                Text {//encposj7
+//                    text: j7_enc_pos.value
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox3.valuescale
+//                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: j7_enc_pos
+//                        name: "joint.7.enc-pos"
+//                        enabled: rowLayout15.j7enable
+//                        direction: HalPin.In
+//                        type: HalPin.S32
+//                    }
+//                }
+//                Text {//poscmdj7
+//                    text: j7_pos_cmd.value.toFixed(2)
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox3.valuescale
+//                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: j7_pos_cmd
+//                        name: "joint.7.pos-cmd"
+//                        enabled: rowLayout15.j7enable
+//                        direction: HalPin.In
+//                        type: HalPin.Float
+//                    }
+//                }
+//                Text {//posfbj7
+//                    text: j7_pos_fb.value.toFixed(2)
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox3.valuescale
+//                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: j7_pos_fb
+//                        name: "joint.7.pos-fb"
+//                        enabled: rowLayout15.j7enable
+//                        direction: HalPin.In
+//                        type: HalPin.Float
+//                    }
+//                }
+//                Text {//velfbj7
+//                    text: j7_vel_fb.value.toFixed(2)
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox3.valuescale
+//                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: j7_vel_fb
+//                        name: "joint.7.vel-fb"
+//                        enabled: rowLayout15.j7enable
+//                        direction: HalPin.In
+//                        type: HalPin.Float
+//                    }
+//                }
+//                Text {//ferrorj7
+//                    text: j7_ferror.value.toFixed(2)
+//                    font.pixelSize: fontSize * zoom_add
+//                    Layout.preferredWidth: groupbox3.valuescale
+//                    horizontalAlignment: Text.AlignRight
+//                    HalPin {
+//                        id: j7_ferror
+//                        name: "joint.7.ferror"
+//                        enabled: rowLayout15.j7enable
+//                        direction: HalPin.In
+//                        type: HalPin.Float
+//                    }
+//                }
+//            }
         }//GroupBox{Parameters)
     }//Item{
 }

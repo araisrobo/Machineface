@@ -13,7 +13,7 @@ import Machinekit.HalRemote.Controls 1.0
 ApplicationItem {
     property var numberModel: defaultHandler.incrementsModel //numberModelBase.concat(["inf"])
     property var numberModelReverse: defaultHandler.incrementsModelReverse
-    property var axisColors: ["#F5A9A9", "#A9F5F2", "#81F781", "#D2B48C", "#D28ED0", "#CFCC67"]
+    property var axisColors: ["#F5A9A9", "#A9F5F2", "#81F781", "#D2B48C", "#D28ED0", "#CFCC67", "#CFCC67"]
     property color allColor: "#DDD"
     property color specialColor: "#BBBBBB"
     property var axisNames: ["X", "Y", "Z", "A", "B", "C", "U", "V", "W"] // should come from INI/config
@@ -21,27 +21,12 @@ ApplicationItem {
     property string eUnits: "mm/s"
     property bool zVisible: status.synced ? status.config.axes > 2 : true
     property bool aVisible: status.synced ? status.config.axes > 3 : true
-    property bool eVisible: halRemoteComponent.connected || eWasConnected
-    property bool eWasConnected: false
-    property bool eEnabled: halRemoteComponent.connected
     property int buttonBaseHeight: container.height / (numberModel.length*2+1)
 
     property int baseSize: Math.min(width, height)
     property int fontSize: baseSize * 0.028
 
     id: root
-
-    HalRemoteComponent {
-        id: halRemoteComponent
-        halrcmdUri: halrcmdService.uri
-        halrcompUri: halrcompService.uri
-        ready: (halrcmdService.ready && halrcompService.ready) || connected
-        name: "fdm-ve-jog"
-        containerItem: extruderControl
-        create: false
-        onErrorStringChanged: console.log(errorString)
-        onConnectedChanged: root.eWasConnected = true
-    }
 
     JogDistanceHandler {
         id: defaultHandler
@@ -437,8 +422,6 @@ ApplicationItem {
                 anchors.top: parent.top
                 anchors.leftMargin: parent.height * 0.03
                 width: parent.height * 0.20
-                visible: eVisible
-                enabled: eEnabled
 
                 HalPin {
                     id: jogVelocityPin
@@ -488,126 +471,6 @@ ApplicationItem {
                     direction: HalPin.In
                     type: HalPin.Float
                 }
-
-                HalPin {
-                    id: jogExtruderCountPin
-                    name: "extruder-count"
-                    direction: HalPin.In
-                    type: HalPin.U32
-                }
-
-                HalPin {
-                    id: jogExtruderSelPin
-                    name: "extruder-sel"
-                    direction: HalPin.In
-                    type: HalPin.S32
-                }
-
-                Button {
-                    anchors.centerIn: parent
-                    height: root.buttonBaseHeight * 0.95
-                    width: height
-                    text: eName + jogExtruderSelPin.value
-                    style: CustomStyle {
-                        baseColor: axisColors[extruderControl.axisIndex];
-                        radius: 1000
-                        boldFont: true
-                        fontSize: root.fontSize
-                    }
-                    onClicked: toolSelectMenu.popup()
-                    enabled: toolSelectAction.enabled
-                    tooltip: qsTr("Change extruder")
-
-                    MdiCommandAction {
-                        property int index: 0
-
-                        id: toolSelectAction
-                        mdiCommand: "T" + index
-                        enableHistory: false
-                    }
-
-                    Menu {
-                        id: toolSelectMenu
-                        title: qsTr("Select extruder")
-
-                        Instantiator {
-                                model: jogExtruderCountPin.value
-                                MenuItem {
-                                    text: qsTr("Extruder ") + index
-                                    checkable: true
-                                    checked: jogExtruderSelPin.value === index
-                                    onTriggered: {
-                                        toolSelectAction.index = index
-                                        toolSelectAction.trigger()
-                                    }
-                                }
-                                onObjectAdded: toolSelectMenu.insertItem(index, object)
-                                onObjectRemoved: toolSelectMenu.removeItem(object)
-                            }
-                    }
-                }
-
-                ColumnLayout {
-                    id: extruderTopLayout
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-                    height: root.buttonBaseHeight * numberModel.length
-                    width: parent.width
-                    spacing: 0
-
-                    Repeater {
-                        model: numberModelReverse
-                        ExtruderJogButton {
-                            property string modelText: numberModelReverse[index]
-                            Layout.preferredWidth: extruderBottomLayout.height / numberModel.length * ((numberModel.length - index - 1) * 0.2 + 1)
-                            Layout.fillHeight: true
-                            Layout.alignment: Qt.AlignHCenter
-                            distance: modelText === "inf" ? 0 : modelText
-                            direction: true
-                            enabled: homeXButton.enabled && !jogTriggerPin.value
-                                     && (!jogContinuousPin.value || (distance == 0 && jogDirectionPin.value))
-                            text: modelText == "inf" ? "" : "-" + modelText
-                            style: CustomStyle {
-                                baseColor: axisColors[extruderControl.axisIndex];
-                                darkness: (numberModel.length-index-1)*0.06
-                                fontSize: root.fontSize
-                                fontIcon: modelText == "inf" ? "\ue316" : ""
-                                fontIconSize: root.fontSize * 2.5
-                            }
-                        }
-                    }
-                }
-
-                ColumnLayout {
-                    id: extruderBottomLayout
-                    anchors.bottom: parent.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    height: root.buttonBaseHeight * numberModel.length
-                    width: parent.width
-                    spacing: 0
-
-                    Repeater {
-                        model: numberModel
-                        ExtruderJogButton {
-                            property string modelText: numberModel[index]
-                            Layout.preferredWidth: extruderBottomLayout.height / numberModel.length * (index*0.2+1)
-                            Layout.fillHeight: true
-                            Layout.alignment: Qt.AlignHCenter
-                            distance: modelText === "inf" ? 0 : modelText
-                            direction: false
-                            enabled: homeXButton.enabled && !jogTriggerPin.value
-                                     && (!jogContinuousPin.value || (distance == 0 && !jogDirectionPin.value))
-                            text: modelText == "inf" ? "" : modelText
-                            style: CustomStyle {
-                                baseColor: axisColors[extruderControl.axisIndex];
-                                darkness: index*0.06
-                                fontSize: root.fontSize
-                                fontIcon: modelText == "inf" ? "\ue313" : ""
-                                fontIconSize: root.fontSize * 2.5
-                            }
-                        }
-                    }
-                }
             }
         }
 
@@ -637,36 +500,19 @@ ApplicationItem {
             }
 
             JogKnob {
-                id: jogVelocityKnob
-                Layout.fillHeight: true
-                Layout.preferredWidth: height
-                visible: eVisible
-                enabled: eEnabled
-                minimumValue: 1
-                maximumValue: jogMaxVelocityPin.value
-                // defaultValue: 3.0
-                color: axisColors[extruderControl.axisIndex]
-                axisName: eName + jogExtruderSelPin.value
-                font.pixelSize: root.fontSize
-
-                Binding { target: jogVelocityPin; property: "value"; value: jogVelocityKnob.value }
-                Binding { target: jogVelocityKnob; property: "value"; value: jogVelocityPin.value }
-            }
-
-            JogKnob {
                 id: feedrateKnob
                 Layout.fillHeight: true
                 Layout.preferredWidth: height
                 minimumValue: feedrateHandler.minimumValue
                 maximumValue: feedrateHandler.maximumValue
-                // defaultValue: 1.0
+                defaultValue: 1.0
                 enabled: feedrateHandler.enabled
                 color: allColor
-                axisName: ""
+                axisName: "FO"
                 font.pixelSize: root.fontSize
                 stepSize: 0.05
                 decimals: 2
-                // text: (value * 100).toFixed(0) + "%"
+                text: (value * 100).toFixed(0) + "%"
 
                 FeedrateHandler {
                     id: feedrateHandler

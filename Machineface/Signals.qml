@@ -22,9 +22,7 @@ Tab {// signaltab
         property int baseSize: Math.min(width, height)
         property int fontSize: baseSize * 0.04
 
-
-
-        id: root
+        id: signals
 
         HalRemoteComponent {
             id: halRemoteComponent
@@ -32,15 +30,15 @@ Tab {// signaltab
             halrcompUri: halrcompService.uri
             ready: (halrcmdService.ready && halrcompService.ready) || connected
             name: "signals"
-            containerItem: extruderControl
+            containerItem: signalItems
             create: false
             onErrorStringChanged: console.log(errorString)
-            onConnectedChanged: root.eWasConnected = true
+            onConnectedChanged: signals.eWasConnected = true
         }
 
 
         Item {
-            id: extruderControl
+            id: signalItems
             enabled: eEnabled
 
             TabView {
