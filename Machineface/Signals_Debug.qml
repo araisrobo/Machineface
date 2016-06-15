@@ -25,6 +25,18 @@ Tab{
             id: groupbox1
             title: qsTr("Debug  ")
             flat: false
+            //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
 
             //***************************************************
             // Debug 00-03
@@ -33,6 +45,7 @@ Tab{
                 id: rowLayout1
                 height: ledSize
                 spacing: ledspacing
+                y: rowLayout_fix.y + rowLayout_fix.height + ledspacing
 
                 Text {//debug00
                     text: "00: " + debug_00.value

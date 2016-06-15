@@ -15,9 +15,9 @@ Tab {
     active: true
 
     property double basewidth: (window.width - window.height * 0.1).toFixed((2))
-    property double ledSize: (basewidth - ledspacing * 36) / 37
+    property double ledSize: (basewidth - ledspacing * 36) / 38
     property double ledspacing: basewidth * 0.005
-    property double zoom_add: 1
+    property double zoom_add: 1.1
     property double textspacing_h: 0
     property int baseSize: Math.min(width, height)
     property int fontSize: baseSize * 0.12
@@ -38,13 +38,25 @@ Tab {
             flat: false
             anchors.top: parent.top
             //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
+            //***************************************************
             // Input 00-31
             //***************************************************
             RowLayout{
                 id:rowLayout1_1
                 height: ledSize
                 spacing: ledspacing
-
+                y: rowLayout_fix.y + rowLayout_fix.height + ledspacing
                 Text {
                     text: qsTr("31")
                     font.pixelSize: fontSize
@@ -95,6 +107,8 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_1.x + rowLayout1_1.width
+                y: rowLayout_fix.y + rowLayout_fix.height + ledspacing
+
                 Text {
                     text: qsTr("24")
                     font.pixelSize: fontSize
@@ -145,6 +159,7 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_2.x + rowLayout1_2.width
+                y: rowLayout_fix.y + rowLayout_fix.height + ledspacing
 
                 Text {
                     text: qsTr("16")
@@ -196,6 +211,7 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_3.x + rowLayout1_3.width
+                y: rowLayout_fix.y + rowLayout_fix.height + ledspacing
 
                 Text {
                     text: qsTr("08")
@@ -253,7 +269,6 @@ Tab {
                 id: rowLayout2_1
                 height: ledSize
                 spacing: ledspacing
-                x: rowLayout1_1.x
                 y: rowLayout1_1.y + rowLayout1_1.height + ledspacing
 
                 Text {
@@ -686,6 +701,18 @@ Tab {
             flat: false
             anchors.top: groupbox1.bottom
             //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix1
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
+            //***************************************************
             // Output 00-31
             //***************************************************
             RowLayout{
@@ -693,6 +720,7 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_1.x
+                y: rowLayout_fix1.y + rowLayout_fix1.height + ledspacing
 
                 Text {
                     text: qsTr("31")
@@ -744,6 +772,7 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_2.x
+                y: rowLayout_fix1.y + rowLayout_fix1.height + ledspacing
 
                 Text {
                     text: qsTr("24")
@@ -795,6 +824,7 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_3.x
+                y: rowLayout_fix1.y + rowLayout_fix1.height + ledspacing
 
                 Text {
                     text: qsTr("16")
@@ -846,6 +876,7 @@ Tab {
                 height: ledSize
                 spacing: ledspacing
                 x: rowLayout1_4.x
+                y: rowLayout_fix1.y + rowLayout_fix1.height + ledspacing
 
                 Text {
                     text: qsTr("08")
@@ -1340,11 +1371,25 @@ Tab {
             property double namescale: (groupbox1.width.toFixed((2)) / 20).toFixed(2)
             property double valuescale: ((groupbox1.width.toFixed((2)) - spacetext.width - 10) / 6.1).toFixed(2)
             //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix2
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
+            //***************************************************
             // Parameters(name)
             //***************************************************
             RowLayout{
                 id: rowLayout7
                 spacing: 0
+                y: rowLayout_fix2.y + rowLayout_fix2.height + textspacing_h
+
                 Text {
                     id: spacetext
                     text: qsTr("")

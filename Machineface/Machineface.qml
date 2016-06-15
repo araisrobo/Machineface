@@ -29,6 +29,8 @@ import Machinekit.Application.Controls 1.0
 import Machinekit.PathView 1.0
 import Machinekit.Service 1.0
 
+import QtQuick.Controls.Styles 1.2
+
 ServiceWindow {
     id: window
     visible: true
@@ -106,6 +108,23 @@ ServiceWindow {
         Signals{
             id:signalTab
         }
+        style: TabViewStyle {
+            frameOverlap: 1
+            tab: Rectangle {
+                color: styleData.selected ? "steelblue" : systemPalette.window
+                border.color:  "steelblue"
+                implicitWidth: Math.max(text.width + 4, 70)
+                implicitHeight: 40
+                radius: 2
+                Text {
+                    id: text
+                    anchors.centerIn: parent
+                    text: styleData.title
+                    color: styleData.selected ? "white" : "black"
+                }
+            }
+            frame: Rectangle { color: "steelblue" }
+        }
     }
 
     DisplayPanel {
@@ -124,6 +143,7 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
+        visible: !signalTab.visible
     }
 
     ApplicationNotifications {

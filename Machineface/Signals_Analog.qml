@@ -29,12 +29,25 @@ Tab {
             title: qsTr("Analog Input  ")
             flat: false
             //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix1
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
+            //***************************************************
             // Input 00-03
             //***************************************************
             RowLayout{
                 id: rowLayout1
                 height: ledSize
                 spacing: ledspacing
+                y: rowLayout_fix1.y + rowLayout_fix1.height + ledspacing
 
                 Text {//ain00
                     text: "00: " + ain_00.value
@@ -254,12 +267,25 @@ Tab {
             anchors.top: groupbox1.bottom
             flat: false
             //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix2
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
+            //***************************************************
             // Output 00-03
             //***************************************************
             RowLayout{
                 id: rowlayout5
                 height: ledSize
                 spacing: ledspacing
+                y: rowLayout_fix2.y + rowLayout_fix2.height + ledspacing
 
                 Text {//aout00
                     text: "00: " + aout_00.value
@@ -316,12 +342,25 @@ Tab {
             anchors.top: groupbox2.bottom
             flat: false
             //***************************************************
+            // Fix
+            //***************************************************
+            RowLayout{
+                id:rowLayout_fix3
+                height: ledSize
+                spacing: ledspacing
+                Text {
+                    text: qsTr("")
+                    font.pixelSize: fontSize
+                }
+            }
+            //***************************************************
             // Output 00-03
             //***************************************************
             RowLayout{
                 id: rowlayout6
                 height: ledSize
                 spacing: ledspacing
+                y: rowLayout_fix3.y + rowLayout_fix3.height + ledspacing
 
                 Text {//aoutfb00
                     text: "00: " + aout_fb_00.value

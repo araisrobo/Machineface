@@ -13,7 +13,6 @@ import Machinekit.HalRemote.Controls 1.0
 
 Tab {// signaltab
     id: signaltab
-    anchors.top: parent.top
     title: qsTr("Signals")
     active: true
     ApplicationItem {
@@ -46,6 +45,23 @@ Tab {// signaltab
                 Signals_GPIO{}
                 Signals_Analog{}
                 Signals_Debug{}
+                style: TabViewStyle {
+                       frameOverlap: 1
+                       tab: Rectangle {
+                           color: styleData.selected ? "steelblue" : systemPalette.window
+                           border.color:  "steelblue"
+                           implicitWidth: Math.max(text.width + 4, 70)
+                           implicitHeight: 40
+                           radius: 2
+                           Text {
+                               id: text
+                               anchors.centerIn: parent
+                               text: styleData.title
+                               color: styleData.selected ? "white" : "black"
+                           }
+                       }
+                       frame: Rectangle { color: "steelblue" }
+                   }
             }
             //***************************************************
             // BP-TICK
