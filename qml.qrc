@@ -16,6 +16,7 @@
         <file>Machineface/OverlayDialog.qml</file>
         <file>Machineface/AboutDialog.qml</file>
         <file>Machineface/TemperatureControl.qml</file>
+        <file>Machineface/PressureControl.qml</file>
         <file>Machineface/FanControl.qml</file>
         <file>Machineface/LightControl.qml</file>
         <file>Machineface/VelocityExtrusionControl.qml</file>

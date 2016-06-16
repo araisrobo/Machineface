@@ -20,14 +20,14 @@ ColumnLayout {
     property int logHeight: 200
     property bool wasConnected: false
 
-    visible: halRemoteComponent.connected || wasConnected
-
+//    visible: halRemoteComponent.connected || wasConnected
+    visible: true
     HalRemoteComponent {
         id: halRemoteComponent
         halrcmdUri: halrcmdService.uri
         halrcompUri: halrcompService.uri
         ready: (halrcmdService.ready && halrcompService.ready) || connected
-        name: tempItem.componentName
+        name: "aout_control"
         containerItem: container
         create: false
         onErrorStringChanged: console.log(errorString)
