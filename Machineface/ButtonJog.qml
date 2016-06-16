@@ -46,238 +46,15 @@ ApplicationItem {
             Layout.fillHeight: true
             Layout.preferredHeight: Math.min(width / 1.6, parent.height)
 
-            Item {
-                id: mainItem
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                width: height
-
-                JogDistanceHandler {
-                    property int buttonBaseSize: container.height / (incrementsModel.length*2+1)
-
-                    id: xyHandler
-                    continuousText: "inf"
-                    core: root.core
-                    axis: 0
-                }
-
-                JogKeyHandler {
-                    baseKey: "Right"
-                    axis: 0
-                    axisHandler: xyHandler
-                    direction: 1
-                }
-
-                JogKeyHandler {
-                    baseKey: "Left"
-                    axis: 0
-                    axisHandler: xyHandler
-                    direction: -1
-                }
-
-                JogKeyHandler {
-                    baseKey: "Up"
-                    axis: 1
-                    axisHandler: xyHandler
-                    direction: 1
-                }
-
-                JogKeyHandler {
-                    baseKey: "Down"
-                    axis: 1
-                    axisHandler: xyHandler
-                    direction: -1
-                }
-
-                Button {
-                    anchors.centerIn: parent
-                    height: xyHandler.buttonBaseSize * 0.95
-                    width: height
-                    text: axisNames[0] + axisNames[1]
-                    style: CustomStyle { baseColor: root.specialColor; radius: 1000; boldFont: true; fontSize: root.fontSize }
-                    enabled: xyZeroAction.enabled
-                    tooltip: qsTr("Move ") + axisNames[0] + qsTr(" and ") + axisNames[1] + qsTr(" axis to 0")
-
-                    onClicked: xyZeroAction.trigger()
-
-                    MdiCommandAction {
-                        id: xyZeroAction
-                        mdiCommand: "G0 " + axisNames[0] + "0 " + axisNames[1] + "0"
-                        enableHistory: false
-                    }
-                }
-
-                HomeButton {
-                    id: homeXButton
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    width: parent.height * 0.2
-                    height: width
-                    axis: 0
-                    axisName: axisNames[0]
-                    color: axisColors[0]
-                    fontSize: root.fontSize
-                }
-
-                HomeButton {
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    width: parent.height * 0.2
-                    height: width
-                    axis: 1
-                    axisName: axisNames[1]
-                    color: axisColors[1]
-                    fontSize: root.fontSize
-                }
-
-                HomeButton {
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    width: parent.height * 0.2
-                    height: width
-                    axis: 2
-                    axisName: axisNames[2]
-                    color: axisColors[2]
-                    fontSize: root.fontSize
-                }
-
-                HomeButton {
-                    anchors.left: parent.left
-                    anchors.bottom: parent.bottom
-                    width: parent.height * 0.2
-                    height: width
-                    axis: -1
-                    axisName: "All"
-                    color: "white"
-                    fontSize: root.fontSize
-                }
-
-                RowLayout {
-                    id: xAxisRightLayout
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: xyHandler.buttonBaseSize * xyHandler.incrementsModel.length
-                    height: width
-                    spacing: 0
-
-                    Repeater {
-                        model: xyHandler.incrementsModel
-                        JogButton {
-                            property string modelText: xyHandler.incrementsModel[index]
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: xAxisRightLayout.height / xyHandler.incrementsModel.length * (index+1)
-                            text: modelText === "inf" ? "" : modelText
-                            axis: 0
-                            distance: modelText === "inf" ? 0 : modelText
-                            direction: 1
-                            style: CustomStyle {
-                                baseColor: axisColors[0]
-                                darkness: index*0.06
-                                fontSize: root.fontSize
-                                fontIcon: modelText == "inf" ? "\ue315" : ""
-                                fontIconSize: root.fontSize * 2.5
-                            }
-                        }
-                    }
-                }
-
-                RowLayout {
-                    id: xAxisLeftLayout
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: xyHandler.buttonBaseSize * xyHandler.incrementsModelReverse.length
-                    height: width
-                    spacing: 0
-                    Repeater {
-                        model: xyHandler.incrementsModelReverse
-                        JogButton {
-                            property string modelText: xyHandler.incrementsModelReverse[index]
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: xAxisLeftLayout.width / xyHandler.incrementsModelReverse.length * (xyHandler.incrementsModelReverse.length-index)
-                            text: modelText === "inf" ? "" : "-" + modelText
-                            axis: 0
-                            distance: modelText === "inf" ? 0 : modelText
-                            direction: -1
-                            style: CustomStyle {
-                                baseColor: axisColors[0]
-                                darkness: (numberModel.length-index-1)*0.06
-                                fontSize: root.fontSize
-                                fontIcon: modelText == "inf" ? "\ue314" : ""
-                                fontIconSize: root.fontSize * 2.5
-                            }
-                        }
-                    }
-                }
-
-                ColumnLayout {
-                    id: yAxisTopLayout
-                    anchors.top: parent.top
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: xyHandler.buttonBaseSize * xyHandler.incrementsModelReverse.length
-                    height: width
-                    spacing: 0
-                    Repeater {
-                        model: xyHandler.incrementsModelReverse
-                        JogButton {
-                            property string modelText: xyHandler.incrementsModelReverse[index]
-                            Layout.preferredWidth: yAxisTopLayout.width / xyHandler.incrementsModelReverse.length * (xyHandler.incrementsModelReverse.length-index)
-                            Layout.fillHeight: true
-                            Layout.alignment: Qt.AlignHCenter
-                            text: modelText == "inf" ? "" : modelText
-                            axis: 1
-                            distance: modelText == "inf" ? 0 : modelText
-                            direction: 1
-                            style: CustomStyle {
-                                baseColor: axisColors[1]
-                                darkness: (xyHandler.incrementsModelReverse.length-index-1)*0.06
-                                fontSize: root.fontSize
-                                fontIcon: modelText == "inf" ? "\ue316" : ""
-                                fontIconSize: root.fontSize * 2.5
-                            }
-                        }
-                    }
-                }
-
-                ColumnLayout {
-                    id: yAxisBottomLayout
-                    anchors.bottom: parent.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    height: xyHandler.buttonBaseSize * xyHandler.incrementsModel.length
-                    width: height
-                    spacing: 0
-                    Repeater {
-                        model: xyHandler.incrementsModel
-                        JogButton {
-                            property string modelText: xyHandler.incrementsModel[index]
-                            Layout.preferredWidth: yAxisBottomLayout.width / xyHandler.incrementsModel.length * (index+1)
-                            Layout.fillHeight: true
-                            Layout.alignment: Qt.AlignHCenter
-                            text: modelText == "inf" ? "" : "-" + modelText
-                            axis: 1
-                            distance: modelText == "inf" ? 0 : modelText
-                            direction: -1
-                            style: CustomStyle {
-                                baseColor: axisColors[1]
-                                darkness: index*0.06
-                                fontSize: root.fontSize
-                                fontIcon: modelText == "inf" ? "\ue313" : ""
-                                fontIconSize: root.fontSize * 2.5
-                            }
-                        }
-                    }
-                }
-            }
-
             RowLayout {
-                property int axes: status.synced ? status.config.axes - 2 : 1
+                property int axes: status.synced ? status.config.axes : 1
 
                 id: axisRowLayout
-                anchors.left: mainItem.right
+                anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 anchors.top: parent.top
                 anchors.leftMargin: parent.height * 0.03
-                width: parent.height * 0.20 * axisRowLayout.axes
+                width: parent.height * 0.20 * (axisRowLayout.axes + 1) // one for home icon
                 spacing: parent.height * 0.03
 
                 Repeater {
@@ -294,7 +71,7 @@ ApplicationItem {
                             id: axisHandler
                             continuousText: "inf"
                             core: root.core
-                            axis: axisIndex+2
+                            axis: axisIndex
                         }
 
                         JogKeyHandler {
@@ -317,8 +94,8 @@ ApplicationItem {
                             anchors.centerIn: parent
                             height: axisHandler.buttonBaseHeight * 0.95
                             width: height
-                            text: axisNames[2+index]
-                            style: CustomStyle { baseColor: root.axisColors[2+index]; radius: 1000; boldFont: true; fontSize: root.fontSize }
+                            text: axisNames[index]
+                            style: CustomStyle { baseColor: root.axisColors[index]; radius: 1000; boldFont: true; fontSize: root.fontSize }
                             enabled: zZeroAction.enabled
                             tooltip: qsTr("Select axis action")
 
@@ -334,17 +111,17 @@ ApplicationItem {
                                 title: qsTr("Select Action")
 
                                 MenuItem {
-                                    text: qsTr("Touch off ") + axisNames[2+index] + qsTr(" axis")
+                                    text: qsTr("Touch off ") + axisNames[index] + qsTr(" axis")
                                     onTriggered: {
-                                        zZeroAction.mdiCommand = "G10 L20 P0 " + axisNames[2+index] + "0"
+                                        zZeroAction.mdiCommand = "G10 L20 P0 " + axisNames[index] + "0"
                                         zZeroAction.trigger()
                                     }
                                 }
 
                                 MenuItem {
-                                    text: qsTr("Move ") + axisNames[2+index] + qsTr(" axis to 0")
+                                    text: qsTr("Move ") + axisNames[index] + qsTr(" axis to 0")
                                     onTriggered: {
-                                        zZeroAction.mdiCommand = "G0 " + axisNames[2+index] + "0"
+                                        zZeroAction.mdiCommand = "G0 " + axisNames[index] + "0"
                                         zZeroAction.trigger()
                                     }
                                 }
@@ -366,11 +143,11 @@ ApplicationItem {
                                     Layout.fillHeight: true
                                     Layout.alignment: Qt.AlignHCenter
                                     text: modelText == "inf" ? "" : modelText
-                                    axis: 2 + axisIndex
+                                    axis: axisIndex
                                     distance: modelText === "inf" ? 0 : modelText
                                     direction: 1
                                     style: CustomStyle {
-                                        baseColor: axisColors[axisIndex+2]
+                                        baseColor: axisColors[axisIndex]
                                         darkness: (axisHandler.incrementsModelReverse.length-index-1)*0.06
                                         fontSize: root.fontSize
                                         fontIcon: modelText == "inf" ? "\ue316" : ""
@@ -395,11 +172,11 @@ ApplicationItem {
                                     Layout.fillHeight: true
                                     Layout.alignment: Qt.AlignHCenter
                                     text: modelText == "inf" ? "" : "-" + modelText
-                                    axis: axisIndex + 2
+                                    axis: axisIndex
                                     distance: modelText === "inf" ? 0 : modelText
                                     direction: -1
                                     style: CustomStyle {
-                                        baseColor: axisColors[axisIndex+2]
+                                        baseColor: axisColors[axisIndex]
                                         darkness: index*0.06
                                         fontSize: root.fontSize
                                         fontIcon: modelText == "inf" ? "\ue313" : ""
@@ -410,6 +187,22 @@ ApplicationItem {
                         }
                     }
                 }
+
+                HomeButton {
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    Layout.fillHeight: false
+                    Layout.fillWidth: false
+                    Layout.preferredHeight: parent.height * 0.2
+                    Layout.preferredWidth: height
+                    width: parent.width
+                    height: width
+                    axis: -1
+                    axisName: "All"
+                    color: "white"
+                    fontSize: root.fontSize
+                }
+
             }
 
             Item {
@@ -475,16 +268,11 @@ ApplicationItem {
         }
 
         RowLayout {
-            spacing: Screen.pixelDensity * 3
+            spacing: Screen.pixelDensity
             Layout.fillHeight: false
-            Layout.fillWidth: true
-            Layout.preferredHeight: root.baseSize * 0.18
-
-            Label {
-                text: qsTr("Velocity" )
-                font.bold: true
-                font.pixelSize: root.fontSize
-            }
+            Layout.fillWidth: false
+            Layout.preferredHeight: root.baseSize * 0.152
+            Layout.preferredWidth: height
 
             Repeater {
                 model: status.synced ? status.config.axes : 0
@@ -523,7 +311,7 @@ ApplicationItem {
             }
 
             Item {
-                Layout.fillWidth: true
+                Layout.fillWidth: false
             }
         }
     }
