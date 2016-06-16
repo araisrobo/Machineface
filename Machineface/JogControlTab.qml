@@ -6,8 +6,10 @@ import QtQuick.Window 2.0
 Tab {
     id: tab
     title: qsTr("Jog")
+    onVisibleChanged: displayPanel.showDisplay()
 
     ButtonJog {
 
     }
+
 }

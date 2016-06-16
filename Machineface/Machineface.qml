@@ -97,7 +97,9 @@ ServiceWindow {
         anchors.rightMargin: Screen.pixelDensity
         anchors.leftMargin: Screen.pixelDensity / 2
 
-        JogControlTab { }
+        JogControlTab {
+            id:jogTab
+        }
         MdiTab { }
         GCodeTab { }
         /*PreviewTab { }*/
@@ -133,8 +135,9 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.bottom: applicationProgressBar.top
         width: parent.width * 0.25
+        anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel
     }
 
     ApplicationProgressBar {
@@ -143,7 +146,7 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible
+        visible: !signalTab.visible && !jogTab.visible
     }
 
     ApplicationNotifications {
