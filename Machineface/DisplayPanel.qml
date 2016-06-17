@@ -15,7 +15,7 @@ ColumnLayout {
         Layout.fillWidth: true
     }
 
-    PressureControl {
+    TemperatureControl {
         componentName: "aout_control"
         labelName: "Pressure Control"
         logHeight: parent.height * 0.25
