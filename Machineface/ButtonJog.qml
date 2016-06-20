@@ -74,21 +74,21 @@ ApplicationItem {
                             axis: axisIndex
                         }
 
-                        JogKeyHandler {
-                            baseKey: "PgUp"
-                            axis: axisIndex+2
-                            axisHandler: axisHandler
-                            direction: 1
-                            enabled: axis == 2
-                        }
+//                        JogKeyHandler {
+//                            baseKey: "PgUp"
+//                            axis: axisIndex+2
+//                            axisHandler: axisHandler
+//                            direction: 1
+//                            enabled: axis == 2
+//                        }
 
-                        JogKeyHandler {
-                            baseKey: "PgDown"
-                            axis: axisIndex+2
-                            axisHandler: axisHandler
-                            direction: -1
-                            enabled: axis == 2
-                        }
+//                        JogKeyHandler {
+//                            baseKey: "PgDown"
+//                            axis: axisIndex+2
+//                            axisHandler: axisHandler
+//                            direction: -1
+//                            enabled: axis == 2
+//                        }
 
                         Button {
                             anchors.centerIn: parent
