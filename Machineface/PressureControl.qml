@@ -20,8 +20,8 @@ ColumnLayout {
     property int logHeight: 200
     property bool wasConnected: false
 
-    visible: halRemoteComponent.connected || wasConnected
-//    visible: true
+//    visible: halRemoteComponent.connected || wasConnected
+    visible: true
     HalRemoteComponent {
         id: halRemoteComponent
         halrcmdUri: halrcmdService.uri
@@ -55,21 +55,23 @@ ColumnLayout {
                 onColor: "orange"
                 Layout.preferredHeight: tempSetLabel.height * 0.9
                 Layout.preferredWidth: tempSetLabel.height * 0.9
+                visible: false
             }
 
             HalLed {
-                name: "temp.in-range"
+                name: "press.in-range"
                 onColor: "green"
                 Layout.preferredHeight: tempSetLabel.height * 0.9
                 Layout.preferredWidth: tempSetLabel.height * 0.9
+                visible: false
             }
 
-            Led {
-                value: errorPin.value
-                onColor: "red"
-                Layout.preferredHeight: tempSetLabel.height * 0.9
-                Layout.preferredWidth: tempSetLabel.height * 0.9
-            }
+//            Led {
+//                value: errorPin.value
+//                onColor: "red"
+//                Layout.preferredHeight: tempSetLabel.height * 0.9
+//                Layout.preferredWidth: tempSetLabel.height * 0.9
+//            }
         }
 
         HalPin {
@@ -81,21 +83,21 @@ ColumnLayout {
 
         HalPin {
             id: maxTemperaturePin
-            name: "temp.limit.max"
+            name: "press.limit.max"
             direction: HalPin.In
             type: HalPin.Float
         }
 
         HalPin {
             id: minTemperaturePin
-            name: "temp.limit.min"
+            name: "press.limit.min"
             direction: HalPin.In
             type: HalPin.Float
         }
 
         HalPin {
             id: standbyTemperaturePin
-            name: "temp.standby"
+            name: "press.standby"
             direction: HalPin.In
             type: HalPin.Float
         }
@@ -103,8 +105,8 @@ ColumnLayout {
         HalGauge {
             id: tempGauge
             Layout.fillWidth: true
-            name: "temp.meas"
-            suffix: "°C"
+            name: "press.meas"
+            suffix: "V"
             decimals: 1
             minimumValueVisible: false
             maximumValueVisible: false
@@ -148,7 +150,7 @@ ColumnLayout {
                 Layout.fillWidth: true
                 id: tempSetSpin
                 enabled: errorPin.value === false
-                name: "temp.set"
+                name: "press.set"
                 halPin.direction: HalPin.IO
                 minimumValue: tempItem.spinMinimumValue
                 maximumValue: tempItem.spinMaximumValue
@@ -163,6 +165,7 @@ ColumnLayout {
 
             Switch {
                 id: onOffSwitch
+                Layout.fillWidth: true
                 enabled: errorPin.value === false
                 onCheckedChanged: {
                     if (checked) {
@@ -173,6 +176,20 @@ ColumnLayout {
                     else {
                         tempSetSpin.value = 0
                     }
+                }
+
+                function toggle() {
+                    consold.log("toggle")
+                    if (checked == true) {
+                        checked = false
+                    } else {
+                        checked =true
+                    }
+                }
+                MouseArea {
+                    anchors.fill: onOffSwitch
+                    onClicked: onOffSwitch.checked = !onOffSwitch.checked
+                    cursorShape: "PointingHandCursor"
                 }
 
                 Binding {

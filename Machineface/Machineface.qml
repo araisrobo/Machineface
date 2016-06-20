@@ -135,6 +135,7 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.bottom: applicationProgressBar.top
         width: parent.width * 0.25
+        anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
         visible: !signalTab.visible && !displayPanel.hidePanel
