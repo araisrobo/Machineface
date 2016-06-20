@@ -42,7 +42,6 @@ ColumnLayout {
     function hideDisplay(){
         if (jogTab.visible) {
             hidePanel = true
-//            digitalReadOut.implicitWidth =1
         }
     }
     function showDisplay(){

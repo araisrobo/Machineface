@@ -93,15 +93,15 @@ Rectangle {
             Layout.fillHeight: true
         }
 
-        TouchButton {
-            Layout.fillWidth: true
-            Layout.preferredHeight: width
-            onClicked: applicationMenu.popup()
-            iconSource: ""
-            FontIcon { // more_horiz
-                text: "\ue5d3"; color: systemPalette.light
-            }
-        }
+//        TouchButton {
+//            Layout.fillWidth: true
+//            Layout.preferredHeight: width
+//            onClicked: applicationMenu.popup()
+//            iconSource: ""
+//            FontIcon { // more_horiz
+//                text: "\ue5d3"; color: systemPalette.light
+//            }
+//        }
 
         ApplicationMenu {
             id: applicationMenu

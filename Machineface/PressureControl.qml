@@ -20,8 +20,8 @@ ColumnLayout {
     property int logHeight: 200
     property bool wasConnected: false
 
-//    visible: halRemoteComponent.connected || wasConnected
-    visible: true
+    visible: halRemoteComponent.connected || wasConnected
+//    visible: true
     HalRemoteComponent {
         id: halRemoteComponent
         halrcmdUri: halrcmdService.uri

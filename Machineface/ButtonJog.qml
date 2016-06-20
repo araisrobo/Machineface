@@ -99,32 +99,13 @@ ApplicationItem {
                             enabled: zZeroAction.enabled
                             tooltip: qsTr("Select axis action")
 
-                            onClicked: zActionMenu.popup()
-
+                            onClicked: {
+                                displayOtherPanel.index = index
+                                displayPanel.hideDisplay()
+                            }
                             MdiCommandAction {
                                 id: zZeroAction
                                 enableHistory: false
-                            }
-
-                            Menu {
-                                id: zActionMenu
-                                title: qsTr("Select Action")
-
-                                MenuItem {
-                                    text: qsTr("Touch off ") + axisNames[index] + qsTr(" axis")
-                                    onTriggered: {
-                                        zZeroAction.mdiCommand = "G10 L20 P0 " + axisNames[index] + "0"
-                                        zZeroAction.trigger()
-                                    }
-                                }
-
-                                MenuItem {
-                                    text: qsTr("Move ") + axisNames[index] + qsTr(" axis to 0")
-                                    onTriggered: {
-                                        zZeroAction.mdiCommand = "G0 " + axisNames[index] + "0"
-                                        zZeroAction.trigger()
-                                    }
-                                }
                             }
                         }
 
