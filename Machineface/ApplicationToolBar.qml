@@ -96,7 +96,7 @@ Rectangle {
         TouchButton {
             Layout.fillWidth: true
             Layout.preferredHeight: width
-            onClicked: applicationMenu.popup()
+            onClicked: displayPanel.showOption_f()
             iconSource: ""
             FontIcon { // more_horiz
                 text: "\ue5d3"; color: systemPalette.light

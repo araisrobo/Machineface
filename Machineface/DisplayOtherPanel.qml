@@ -46,6 +46,10 @@ ColumnLayout {
             zZeroAction.mdiCommand = "G0 " + axisNames[index] + "0"
             zZeroAction.trigger()
         }
+        MdiCommandAction {
+            id: zZeroAction
+            enableHistory: false
+        }
     }
     HomeButton {
         id: homeXButton

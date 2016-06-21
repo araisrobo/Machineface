@@ -26,6 +26,7 @@ ColumnLayout {
         Layout.fillHeight: true
     }
     property bool hidePanel: false
+    property bool showOption: false
     MouseArea{
     id: mouseArea
     x: 0
@@ -42,10 +43,18 @@ ColumnLayout {
     function hideDisplay(){
         if (jogTab.visible) {
             hidePanel = true
+            showOption = false
+        }
+    }
+    function showOption_f(){
+        if (!signalTab.visible) {
+            hidePanel = true
+            showOption = true
         }
     }
     function showDisplay(){
         hidePanel = false
+        showOption = false
     }
 
 }
