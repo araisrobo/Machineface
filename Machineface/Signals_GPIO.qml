@@ -15,7 +15,7 @@ Tab {
     active: true
 
     property double basewidth: (window.width - window.height * 0.1).toFixed((2))
-    property double ledSize: (basewidth - ledspacing * 36) / 38
+    property double ledSize: (basewidth - ledspacing * 36) / 40
     property double ledspacing: basewidth * 0.005
     property double zoom_add: 1.1
     property double textspacing_h: 0

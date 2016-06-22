@@ -73,7 +73,7 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: window.height * 0.1
+        width: window.height * 0.2
     }
 
     ApplicationRemoteFileDialog {
@@ -116,7 +116,7 @@ ServiceWindow {
                 color: styleData.selected ? "steelblue" : systemPalette.window
                 border.color:  "steelblue"
                 implicitWidth: Math.max(text.width + 4, 70)
-                implicitHeight: 40
+                implicitHeight: 60
                 radius: 2
                 Text {
                     id: text

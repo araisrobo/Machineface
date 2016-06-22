@@ -10,7 +10,10 @@ Rectangle {
     color: systemPalette.dark
 
     SystemPalette { id: systemPalette }
-
+    Flickable{
+        flickableDirection: Flickable.VerticalFlick
+        anchors.fill: parent
+        contentHeight: parent.height * 2;
     ColumnLayout {
         id: toolBar
         anchors.fill: parent
@@ -111,4 +114,5 @@ Rectangle {
             id: aboutDialog
         }
     }
+}
 }

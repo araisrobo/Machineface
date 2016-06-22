@@ -51,7 +51,7 @@ Tab {// signaltab
                            color: styleData.selected ? "steelblue" : systemPalette.window
                            border.color:  "steelblue"
                            implicitWidth: Math.max(text.width + 4, 70)
-                           implicitHeight: 40
+                           implicitHeight: 60
                            radius: 2
                            Text {
                                id: text
@@ -70,7 +70,7 @@ Tab {// signaltab
                 id: bptickValue
                 text: "bp-tick : " + bptickPin.value + " "
                 font.pixelSize: fontSize
-                x: window.width - (bptickValue.width * 1.4)
+                x: window.width - (bptickValue.width * 1.8)
                 HalPin {
                     id: bptickPin
                     name: "bptick"

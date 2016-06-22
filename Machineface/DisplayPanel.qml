@@ -12,14 +12,12 @@ import Machinekit.Application.Controls 1.0
 ColumnLayout {
     DigitalReadOut {
         id:digitalReadOut
-        Layout.fillWidth: true
     }
 
     PressureControl {
         componentName: "aout_control"
-        labelName: "Pressure Control"
+        labelName: "Pressure"
         logHeight: parent.height * 0.25
-        width: parent.width
     }
 
     Item {
@@ -27,19 +25,19 @@ ColumnLayout {
     }
     property bool hidePanel: false
     property bool showOption: false
-    MouseArea{
-    id: mouseArea
-    x: 0
-    y: 0
-    width: parent.width * 0.25
-    height: parent.height * 0.25
-    anchors.rightMargin: 0
-    anchors.bottomMargin: parent.height * 0.25
-    anchors.leftMargin: parent.width * 0.5
-    anchors.topMargin: 0
-    anchors.fill: parent
-    onDoubleClicked: hideDisplay()
-    }
+//    MouseArea{
+//    id: mouseArea
+//    x: 0
+//    y: 0
+//    width: parent.width * 0.25
+//    height: parent.height * 0.25
+//    anchors.rightMargin: 0
+//    anchors.bottomMargin: parent.height * 0.25
+//    anchors.leftMargin: parent.width * 0.5
+//    anchors.topMargin: 0
+//    anchors.fill: parent
+//    onDoubleClicked: hideDisplay()
+//    }
     function hideDisplay(){
         if (jogTab.visible) {
             hidePanel = true

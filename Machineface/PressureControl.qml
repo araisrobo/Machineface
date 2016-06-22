@@ -20,14 +20,15 @@ ColumnLayout {
     property int logHeight: 200
     property bool wasConnected: false
 
+
     visible: halRemoteComponent.connected || wasConnected
-//    visible: true
+
     HalRemoteComponent {
         id: halRemoteComponent
         halrcmdUri: halrcmdService.uri
         halrcompUri: halrcompService.uri
         ready: (halrcmdService.ready && halrcompService.ready) || connected
-        name: "aout_control"
+        name: tempItem.componentName
         containerItem: container
         create: false
         onErrorStringChanged: console.log(errorString)
@@ -37,8 +38,9 @@ ColumnLayout {
     ColumnLayout {
         id: container
         enabled:  halRemoteComponent.connected
-        Layout.fillWidth: true
-
+        Layout.fillWidth: false
+        Layout.preferredWidth: displayPanel.width *0.9
+        Layout.leftMargin: displayPanel.width * 0.15
         RowLayout {
             Label {
                 id: tempSetLabel
@@ -155,7 +157,7 @@ ColumnLayout {
                 minimumValue: tempItem.spinMinimumValue
                 maximumValue: tempItem.spinMaximumValue
                 decimals: 1
-                suffix: "V"
+//                suffix: "V"
 
                 onEditingFinished: {            // remove the focus from this control
                     parent.forceActiveFocus()
