@@ -70,7 +70,7 @@ ColumnLayout {
         anchors.top: homeXButton.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: parent.width * 0.05
-        text: qsTr("Show Position ")
+        text: qsTr("Position ")
         style: CustomStyle { baseColor: "white"; radius: 0; boldFont: true; fontSize: fontSize }
         onClicked: {
             displayPanel.showDisplay()

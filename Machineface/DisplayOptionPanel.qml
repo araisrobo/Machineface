@@ -13,6 +13,7 @@ ColumnLayout {
 
     Button {
         text: qsTr("&Disconnect")
+        anchors.horizontalCenter: parent.horizontalCenter
         iconName: "network-disconnect"
         onClicked: {
             window.disconnect()
@@ -21,6 +22,7 @@ ColumnLayout {
 
     Button {
         text: qsTr("&AboutMachineface")
+        anchors.horizontalCenter: parent.horizontalCenter
         iconName: "help-about"
         onClicked: {
            aboutDialog.open()
@@ -29,6 +31,7 @@ ColumnLayout {
 
     Button {
         text: qsTr("Sh&utdown")
+        anchors.horizontalCenter: parent.horizontalCenter
         action: ShutdownAction {}
         onClicked: {
             window.disconnect()
@@ -37,13 +40,15 @@ ColumnLayout {
 
     Button {
         text: qsTr("E&xit")
+        anchors.horizontalCenter: parent.horizontalCenter
         iconName: "application-exit"
         onClicked: {
             Qt.quit()
         }
     }
     Button {
-        text: qsTr("S&howPosition")
+        text: qsTr("&Position")
+        anchors.horizontalCenter: parent.horizontalCenter
 //        iconName: "application-exit"
         onClicked: {
             displayPanel.showDisplay()
