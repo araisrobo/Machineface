@@ -21,8 +21,17 @@ Tab {// signaltab
         property int baseSize: Math.min(width, height)
         property int fontSize: baseSize * 0.04
 
-        id: signals
+        property int joints: 7
+        property bool j0enable: joints > 0
+        property bool j1enable: joints > 1
+        property bool j2enable: joints > 2
+        property bool j3enable: joints > 3
+        property bool j4enable: joints > 4
+        property bool j5enable: joints > 5
+        property bool j6enable: joints > 6
 
+        id: signals
+                visible: j1enable
         HalRemoteComponent {
             id: halRemoteComponent
             halrcmdUri: halrcmdService.uri
