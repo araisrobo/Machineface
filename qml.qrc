@@ -13,6 +13,7 @@
         <file>Machineface/ApplicationToolBar.qml</file>
         <file>Machineface/MdiTab.qml</file>
         <file>Machineface/GCodeTab.qml</file>
+        <file>Machineface/GPIO_Tab.qml</file>
         <file>Machineface/SettingsTab.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>
         <file>Machineface/OverlayDialog.qml</file>
