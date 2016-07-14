@@ -102,12 +102,12 @@ ServiceWindow {
         }
         MdiTab { }
         GCodeTab { }
-        GPIO_Tab{ }
         /*PreviewTab { }*/
 //        VideoTab { }
         SettingsTab { }
 //        ExtrasTab { }
 //        ANDDemo { }
+        GPIO_Tab{id:gpioTab}
         Signals{
             id:signalTab
         }
@@ -139,7 +139,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel
+        visible: !signalTab.visible && !displayPanel.hidePanel && !gpioTab.visible
     }
     DisplayOtherPanel {
         id: displayOtherPanel
@@ -150,7 +150,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !gpioTab.visible
     }
     DisplayOptionPanel {
         id: displayOptionPanel
@@ -161,7 +161,18 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption
+        visible: displayPanel.showOption && !gpioTab.visible
+    }
+    DisplayGpioPanel {
+        id: displayGpioPanel
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: applicationProgressBar.top
+        width: parent.width * 0.25
+        anchors.rightMargin: parent.width * 0.04
+        anchors.topMargin: parent.width * 0.05
+        anchors.margins: Screen.pixelDensity
+        visible: gpioTab.visible
     }
     ApplicationProgressBar {
         id: applicationProgressBar
