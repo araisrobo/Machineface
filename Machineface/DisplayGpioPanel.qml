@@ -10,9 +10,15 @@ import Machinekit.Controls 1.0
 import Machinekit.Application.Controls 1.0
 
 ColumnLayout {
-
+    property int page: 1
     Item {
         Layout.fillHeight: true
+    }
+    function touchLogPage1(){
+        page = 1
+    }
+    function touchLogPage2(){
+        page = 2
     }
 
     Button {
@@ -20,7 +26,11 @@ ColumnLayout {
         anchors.horizontalCenter: parent.horizontalCenter
 //        iconName: "network-disconnect"
         onClicked: {
-            gpioAction.trigger()
+            if(page == 1){
+                gpioAction.trigger()
+            } else if (page == 2){
+                alarmAction.trigger()
+            }
         }
     }
     Item {
@@ -37,5 +47,6 @@ ColumnLayout {
         Layout.fillHeight: true
     }
     GPIOAction { id: gpioAction}
+    AlarmAction { id: alarmAction}
 
 }
