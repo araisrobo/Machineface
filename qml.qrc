@@ -16,6 +16,7 @@
         <file>Machineface/GCodeTab.qml</file>
         <file>Machineface/GPIO_Tab.qml</file>
         <file>Machineface/AlarmTab.qml</file>
+        <file>Machineface/ProductTab.qml</file>
         <file>Machineface/GpioData.qml</file>
         <file>Machineface/SettingsTab.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>

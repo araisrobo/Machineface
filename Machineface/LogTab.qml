@@ -15,6 +15,7 @@ Tab {
 
         GPIO_Tab{id:gpioTab}
         AlarmTab{id:alarmTab}
+        ProductTab{id:productTab}
 
         style: TabViewStyle {
             frameOverlap: 1
