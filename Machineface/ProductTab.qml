@@ -16,19 +16,19 @@ Tab {
 
         ToolButton {
             id: backButton
-            iconSource: "../icons/go-previous.png"
+            iconSource: "qrc:MachineKit/../icons/go-previous.png"
             onClicked: currentWebView.goBack()
             enabled: currentWebView && currentWebView.canGoBack
         }
         ToolButton {
             id: forwardButton
-            iconSource: "../icons/go-next.png"
+            iconSource: "qrc:MachineKit/../icons/go-next.png"
             onClicked: currentWebView.goForward()
             enabled: currentWebView && currentWebView.canGoForward
         }
         ToolButton {
             id: reloadButton
-            iconSource: currentWebView && currentWebView.loading ? "../icons/process-stop.png" : "../icons/view-refresh.png"
+            iconSource: currentWebView && currentWebView.loading ? "qrc:MachineKit/../icons/process-stop.png" : "qrc:MachineKit/../icons/view-refresh.png"
             onClicked: currentWebView && currentWebView.loading ? currentWebView.stop() : currentWebView.reload()
         }
         TextField {
