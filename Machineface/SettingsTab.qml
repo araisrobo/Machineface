@@ -20,15 +20,15 @@ Tab {
             width: scrollView.width
             spacing: Screen.pixelDensity
 
-            VelocityExtrusionControl {
-                Layout.fillWidth: false
-                id: velocityExtrusionControl
-            }
+//            VelocityExtrusionControl {
+//                Layout.fillWidth: false
+//                id: velocityExtrusionControl
+//            }
 
-            GantryConfigControl {
-                Layout.fillWidth: false
-                id: gantryConfigControl
-            }
+//            GantryConfigControl {
+//                Layout.fillWidth: false
+//                id: gantryConfigControl
+//            }
 
             Label {
                 text: qsTr("Digital Read Out")

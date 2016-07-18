@@ -102,9 +102,10 @@ ServiceWindow {
         }
         MdiTab { }
         GCodeTab { }
+        GPIO_Tab{ }
         /*PreviewTab { }*/
 //        VideoTab { }
-//        SettingsTab { }
+        SettingsTab { }
 //        ExtrasTab { }
 //        ANDDemo { }
         Signals{
