@@ -49,7 +49,7 @@ Tab {
             focus: true
             Layout.fillWidth: true
             text: currentWebView && currentWebView.url
-            onAccepted: currentWebView.url = utils.fromUserInput(text)
+            onAccepted: currentWebView.url = text
         }
     }
     WebEngineView {
