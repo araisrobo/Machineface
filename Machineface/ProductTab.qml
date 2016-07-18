@@ -16,13 +16,13 @@ Tab {
 
         ToolButton {
             id: backButton
-            iconSource: "qrc:MachineKit/../icons/go-previous.png"
+            iconSource: "qrc:MachineKit/../../icons/go-previous.png"
             onClicked: currentWebView.goBack()
             enabled: currentWebView && currentWebView.canGoBack
         }
         ToolButton {
             id: forwardButton
-            iconSource: "qrc:MachineKit/../icons/go-next.png"
+            iconSource: "qrc:MachineKit/../../icons/go-next.png"
             onClicked: currentWebView.goForward()
             enabled: currentWebView && currentWebView.canGoForward
         }
