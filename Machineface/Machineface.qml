@@ -104,11 +104,11 @@ ServiceWindow {
         GCodeTab { }
         /*PreviewTab { }*/
 //        VideoTab { }
-//        SettingsTab { }
+        SettingsTab { }
 //        ExtrasTab { }
 //        ANDDemo { }
 //        Testtab {}
-
+        LogTab{id:logTab}
         Signals{
             id:signalTab
         }
@@ -140,7 +140,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel
+        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible
     }
     DisplayOtherPanel {
         id: displayOtherPanel
@@ -151,7 +151,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible
     }
     DisplayOptionPanel {
         id: displayOptionPanel
@@ -162,7 +162,18 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption
+        visible: displayPanel.showOption && !logTab.visible
+    }
+    DisplayGpioPanel {
+        id: displayGpioPanel
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: applicationProgressBar.top
+        width: parent.width * 0.25
+        anchors.rightMargin: parent.width * 0.04
+        anchors.topMargin: parent.width * 0.05
+        anchors.margins: Screen.pixelDensity
+        visible: logTab.visible
     }
     ApplicationProgressBar {
         id: applicationProgressBar
