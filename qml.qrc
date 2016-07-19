@@ -38,5 +38,10 @@
         <file>Machineface/Signals_Analog.qml</file>
         <file>Machineface/Signals_Debug.qml</file>
         <file>Machineface/Signals_GPIO.qml</file>
+        <!--
+        <file>Machineface/Signals_Analog1.qml</file>
+        <file>Machineface/Testtab.qml</file>
+        <file>Machineface/Signals_GPIO1.qml</file>
+        -->
     </qresource>
 </RCC>

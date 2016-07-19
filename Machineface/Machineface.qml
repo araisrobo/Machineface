@@ -107,6 +107,8 @@ ServiceWindow {
 //        SettingsTab { }
 //        ExtrasTab { }
 //        ANDDemo { }
+//        Testtab {}
+
         Signals{
             id:signalTab
         }
