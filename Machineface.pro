@@ -1,6 +1,7 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets \
+    webengine
 
 SOURCES += main.cpp \
     src/scriptlauncher.cpp

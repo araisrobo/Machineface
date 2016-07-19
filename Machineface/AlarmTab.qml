@@ -5,15 +5,15 @@ import QtQuick.Window 2.0
 import Machinekit.PathView 1.0
 
 Tab {
-    title: qsTr("GPIO")
+    title: qsTr("ALARM")
     onVisibleChanged: {
         if (visible == true)
-        displayGpioPanel.touchLogPage1()
+        displayGpioPanel.touchLogPage2()
     }
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: Screen.pixelDensity * 1
-        SourceViewGPIO {
+        SourceViewAlarm {
             Layout.fillHeight: true
             Layout.fillWidth: true
         }

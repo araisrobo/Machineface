@@ -31,7 +31,7 @@ Tab {// signaltab
         property bool j6enable: joints > 6
 
         id: signals
-                visible: j1enable
+
         HalRemoteComponent {
             id: halRemoteComponent
             halrcmdUri: halrcmdService.uri

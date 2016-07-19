@@ -8,12 +8,16 @@
         <file>Machineface/DisplayPanel.qml</file>
         <file>Machineface/DisplayOtherPanel.qml</file>
         <file>Machineface/DisplayOptionPanel.qml</file>
+        <file>Machineface/DisplayGpioPanel.qml</file>
         <file>Machineface/PreviewTab.qml</file>
         <file>Machineface/JogControlTab.qml</file>
         <file>Machineface/ApplicationToolBar.qml</file>
         <file>Machineface/MdiTab.qml</file>
         <file>Machineface/GCodeTab.qml</file>
         <file>Machineface/GPIO_Tab.qml</file>
+        <file>Machineface/AlarmTab.qml</file>
+        <file>Machineface/ProductTab.qml</file>
+        <file>Machineface/GpioData.qml</file>
         <file>Machineface/SettingsTab.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>
         <file>Machineface/OverlayDialog.qml</file>
@@ -22,6 +26,7 @@
         <file>Machineface/PressureControl.qml</file>
         <file>Machineface/FanControl.qml</file>
         <file>Machineface/LightControl.qml</file>
+        <file>Machineface/LogTab.qml</file>
         <file>Machineface/VelocityExtrusionControl.qml</file>
         <file>Machineface/GantryConfigControl.qml</file>
         <file>Machineface/VideoTab.qml</file>
@@ -39,5 +44,16 @@
         <file>Machineface/Signals_Analog.qml</file>
         <file>Machineface/Signals_Debug.qml</file>
         <file>Machineface/Signals_GPIO.qml</file>
+        <!--
+        <file>Machineface/Signals_Analog1.qml</file>
+        <file>Machineface/Testtab.qml</file>
+        <file>Machineface/Signals_GPIO1.qml</file>
+        -->
+    </qresource>
+    <qresource prefix="icons">
+        <file alias="go-next.png">icons/go-next.png</file>
+        <file alias="go-previous.png">icons/go-previous.png</file>
+        <file alias="process-stop.png">icons/process-stop.png</file>
+        <file alias="view-refresh.png">icons/view-refresh.png</file>
     </qresource>
 </RCC>
