@@ -55,22 +55,45 @@ Tab {// signaltab
                 Signals_Analog{}
                 Signals_Debug{}
                 style: TabViewStyle {
-                       frameOverlap: 1
-                       tab: Rectangle {
-                           color: styleData.selected ? "steelblue" : systemPalette.window
-                           border.color:  "steelblue"
-                           implicitWidth: Math.max(text.width + 4, 70)
-                           implicitHeight: 60
-                           radius: 2
-                           Text {
-                               id: text
-                               anchors.centerIn: parent
-                               text: styleData.title
-                               color: styleData.selected ? "white" : "black"
-                           }
-                       }
-                       frame: Rectangle { color: "steelblue" }
-                   }
+                    frameOverlap: 1
+
+                    tab: Rectangle {
+                        gradient: Gradient {
+                            GradientStop { position: 0 ; color: (styleData.selected) ?
+                                                                    Qt.darker("lightsteelblue", 1.05) :
+                                                                    Qt.darker("#DDD", 0.85) }
+                            GradientStop { position: 1 ; color: (styleData.selected) ?
+                                                                    Qt.darker("lightsteelblue", 1.5) :
+                                                                    Qt.darker("#DDD", 1.3) }
+                        }
+                        implicitWidth: Math.max(text.width + 4, 70)
+                        implicitHeight: 60
+                        radius: 10
+                        Text {
+                            id: text
+                            anchors.centerIn: parent
+                            text: styleData.title
+                            color: styleData.selected ? "white" : "black"
+                        }
+                    }
+                }
+//                style: TabViewStyle {
+//                       frameOverlap: 1
+//                       tab: Rectangle {
+//                           color: styleData.selected ? "steelblue" : systemPalette.window
+//                           border.color:  "steelblue"
+//                           implicitWidth: Math.max(text.width + 4, 70)
+//                           implicitHeight: 60
+//                           radius: 2
+//                           Text {
+//                               id: text
+//                               anchors.centerIn: parent
+//                               text: styleData.title
+//                               color: styleData.selected ? "white" : "black"
+//                           }
+//                       }
+//                       frame: Rectangle { color: "steelblue" }
+//                   }
             }
             //***************************************************
             // BP-TICK

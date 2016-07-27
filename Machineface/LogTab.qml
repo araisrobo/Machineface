@@ -8,23 +8,30 @@ import QtQuick.Controls.Styles 1.2
 Tab {
     title: qsTr("Log")
     id:logTab
-
+//    enabled:changeUserTab.userID > 0
+    visible:false
+    active: false
     TabView {
         frameVisible: false
         id:logMainTab
-
         GPIO_Tab{id:gpioTab}
         AlarmTab{id:alarmTab}
-        ProductTab{id:productTab}
-
+//        ProductTab{id:productTab}
         style: TabViewStyle {
             frameOverlap: 1
+
             tab: Rectangle {
-                color: styleData.selected ? "steelblue" : systemPalette.window
-                border.color:  "steelblue"
+                gradient: Gradient {
+                    GradientStop { position: 0 ; color: (styleData.selected) ?
+                                                            Qt.darker("lightsteelblue", 1.05) :
+                                                            Qt.darker("#DDD", 0.85) }
+                    GradientStop { position: 1 ; color: (styleData.selected) ?
+                                                            Qt.darker("lightsteelblue", 1.5) :
+                                                            Qt.darker("#DDD", 1.3) }
+                }
                 implicitWidth: Math.max(text.width + 4, 70)
                 implicitHeight: 60
-                radius: 2
+                radius: 10
                 Text {
                     id: text
                     anchors.centerIn: parent
@@ -32,8 +39,6 @@ Tab {
                     color: styleData.selected ? "white" : "black"
                 }
             }
-            frame: Rectangle { color: "steelblue" }
         }
-
     }
 }

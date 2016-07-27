@@ -105,21 +105,30 @@ ServiceWindow {
         /*PreviewTab { }*/
 //        VideoTab { }
         SettingsTab { }
+        ProductTab{id:productTab}
+        ChangeUserTab{id: changeUserTab}
 //        ExtrasTab { }
 //        ANDDemo { }
 //        GPIO_Tab{id:gpioTab}
-        LogTab{id:logTab}
+//        LogTab{id:logTab; visible: false; enabled:changeUserTab.userID > 0}
         Signals{
             id:signalTab
         }
         style: TabViewStyle {
             frameOverlap: 1
+
             tab: Rectangle {
-                color: styleData.selected ? "steelblue" : systemPalette.window
-                border.color:  "steelblue"
+                gradient: Gradient {
+                    GradientStop { position: 0 ; color: (styleData.selected) ?
+                                                            Qt.darker("lightsteelblue", 1.05) :
+                                                            Qt.darker("#DDD", 0.85) }
+                    GradientStop { position: 1 ; color: (styleData.selected) ?
+                                                            Qt.darker("lightsteelblue", 1.5) :
+                                                            Qt.darker("#DDD", 1.3) }
+                }
                 implicitWidth: Math.max(text.width + 4, 70)
                 implicitHeight: 60
-                radius: 2
+                radius: 10
                 Text {
                     id: text
                     anchors.centerIn: parent
@@ -127,7 +136,6 @@ ServiceWindow {
                     color: styleData.selected ? "white" : "black"
                 }
             }
-            frame: Rectangle { color: "steelblue" }
         }
     }
 
@@ -140,7 +148,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel /*&& !logTab.visible*/ && !changeUserTab.visible
     }
     DisplayOtherPanel {
         id: displayOtherPanel
@@ -151,7 +159,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible
+        visible: displayPanel.hidePanel && !displayPanel.showOption /*&& !logTab.visible*/ && !changeUserTab.visible
     }
     DisplayOptionPanel {
         id: displayOptionPanel
@@ -162,26 +170,26 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption && !logTab.visible
+        visible: displayPanel.showOption && !logTab.visible && !changeUserTab.visible
     }
-    DisplayGpioPanel {
-        id: displayGpioPanel
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: applicationProgressBar.top
-        width: parent.width * 0.25
-        anchors.rightMargin: parent.width * 0.04
-        anchors.topMargin: parent.width * 0.05
-        anchors.margins: Screen.pixelDensity
-        visible: logTab.visible
-    }
+//    DisplayGpioPanel {
+//        id: displayGpioPanel
+//        anchors.right: parent.right
+//        anchors.top: parent.top
+//        anchors.bottom: applicationProgressBar.top
+//        width: parent.width * 0.25
+//        anchors.rightMargin: parent.width * 0.04
+//        anchors.topMargin: parent.width * 0.05
+//        anchors.margins: Screen.pixelDensity
+//        visible: logTab.visible
+//    }
     ApplicationProgressBar {
         id: applicationProgressBar
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !jogTab.visible
+        visible: !signalTab.visible && !jogTab.visible && !changeUserTab.visible
     }
 
     ApplicationNotifications {

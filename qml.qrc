@@ -16,7 +16,9 @@
         <file>Machineface/GCodeTab.qml</file>
         <file>Machineface/GPIO_Tab.qml</file>
         <file>Machineface/AlarmTab.qml</file>
+        <file>Machineface/ChangeUserTab.qml</file>
         <file>Machineface/ProductTab.qml</file>
+        <file>Machineface/ProductData.qml</file>
         <file>Machineface/GpioData.qml</file>
         <file>Machineface/SettingsTab.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>
@@ -26,6 +28,7 @@
         <file>Machineface/PressureControl.qml</file>
         <file>Machineface/FanControl.qml</file>
         <file>Machineface/LightControl.qml</file>
+        <file>Machineface/LineInput.qml</file>
         <file>Machineface/LogTab.qml</file>
         <file>Machineface/VelocityExtrusionControl.qml</file>
         <file>Machineface/GantryConfigControl.qml</file>
@@ -50,5 +53,6 @@
         <file alias="go-previous.png">icons/go-previous.png</file>
         <file alias="process-stop.png">icons/process-stop.png</file>
         <file alias="view-refresh.png">icons/view-refresh.png</file>
+        <file alias="icon-search.png">icons/icon-search.png</file>
     </qresource>
 </RCC>
