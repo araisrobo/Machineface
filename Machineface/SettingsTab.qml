@@ -55,70 +55,86 @@ Tab {
                 text: qsTr("Show distance to go")
             }
 
-//            // temporarily disable preview until it is working in a better way
-//            ToggleSettingCheck {
-//                id: enablePreviewAction
-//                groupName: "preview"
-//                valueName: "enable"
-//                text: qsTr("Enable preview")
-//                visible: checked  // in case preview was accidentally enabled show this check box
-//            }
+            Label {
+                text: qsTr("Other")
+                font.bold: true
+            }
 
-//            ToggleSettingCheck {
-//                id: showMachineLimitsAction
-//                groupName: "preview"
-//                valueName: "showMachineLimits"
-//                text: qsTr("Show machine limits")
-//            }
+            // temporarily disable preview until it is working in a better way
+            ToggleSettingCheck {
+                id: enablePreviewAction
+                groupName: "preview"
+                valueName: "enable"
+                text: qsTr("Enable preview")
+                visible: checked  // in case preview was accidentally enabled show this check box
+            }
 
-//            ToggleSettingCheck {
-//                id: showProgramAction
-//                groupName: "preview"
-//                valueName: "showProgram"
-//                text: qsTr("Show program")
-//            }
+            CheckBox {
+                id: teleopCheck
+                checked: teleopAction.checked
+                text: teleopAction.text
+                onClicked: teleopAction.trigger()
 
-//            ToggleSettingCheck {
-//                id: showProgramExtentsAction
-//                groupName: "preview"
-//                valueName: "showProgramExtents"
-//                text: qsTr("Show program extents")
-//            }
+                TeleopAction {
+                    id: teleopAction
+                }
+            }
 
-//            ToggleSettingCheck {
-//                id: showProgramRapidsAction
-//                groupName: "preview"
-//                valueName: "showProgramRapids"
-//                text: qsTr("Show program rapids")
-//            }
+           /* ToggleSettingCheck {
+                id: showMachineLimitsAction
+                groupName: "preview"
+                valueName: "showMachineLimits"
+                text: qsTr("Show machine limits")
+            }
 
-//            ToggleSettingCheck {
-//                id: alphaBlendProgramAction
-//                groupName: "preview"
-//                valueName: "alphaBlendProgram"
-//                text: qsTr("Alpha-blend program")
-//            }
+            ToggleSettingCheck {
+                id: showProgramAction
+                groupName: "preview"
+                valueName: "showProgram"
+                text: qsTr("Show program")
+            }
 
-//            ToggleSettingCheck {
-//                id: showLivePlotAction
-//                groupName: "preview"
-//                valueName: "showLivePlot"
-//                text: qsTr("Show live plot")
-//            }
+            ToggleSettingCheck {
+                id: showProgramExtentsAction
+                groupName: "preview"
+                valueName: "showProgramExtents"
+                text: qsTr("Show program extents")
+            }
 
-//            ToggleSettingCheck {
-//                id: showToolAction
-//                groupName: "preview"
-//                valueName: "showTool"
-//                text: qsTr("Show tool")
-//            }
+            ToggleSettingCheck {
+                id: showProgramRapidsAction
+                groupName: "preview"
+                valueName: "showProgramRapids"
+                text: qsTr("Show program rapids")
+            }
 
-//            ToggleSettingCheck {
-//                id: showCoordinateAction
-//                groupName: "preview"
-//                valueName: "showCoordinate"
-//                text: qsTr("Show coordinate")
-//            }
+            ToggleSettingCheck {
+                id: alphaBlendProgramAction
+                groupName: "preview"
+                valueName: "alphaBlendProgram"
+                text: qsTr("Alpha-blend program")
+            }
+
+            ToggleSettingCheck {
+                id: showLivePlotAction
+                groupName: "preview"
+                valueName: "showLivePlot"
+                text: qsTr("Show live plot")
+            }
+
+            ToggleSettingCheck {
+                id: showToolAction
+                groupName: "preview"
+                valueName: "showTool"
+                text: qsTr("Show tool")
+            }
+
+            ToggleSettingCheck {
+                id: showCoordinateAction
+                groupName: "preview"
+                valueName: "showCoordinate"
+                text: qsTr("Show coordinate")
+            }*/
         }
         }
     }
