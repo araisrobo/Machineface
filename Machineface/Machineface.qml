@@ -116,6 +116,7 @@ ServiceWindow {
         Signals{
             id:signalTab
         }
+
         style: TabViewStyle {
             frameOverlap: 1
 
@@ -139,6 +140,7 @@ ServiceWindow {
                 }
             }
         }
+
     }
 
     DisplayPanel {
@@ -150,7 +152,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel /*&& !logTab.visible*/ && !changeUserTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible && !changeUserTab.visible
     }
     DisplayOtherPanel {
         id: displayOtherPanel
@@ -161,7 +163,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption /*&& !logTab.visible*/ && !changeUserTab.visible
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible && !changeUserTab.visible
     }
     DisplayOptionPanel {
         id: displayOptionPanel
@@ -174,17 +176,17 @@ ServiceWindow {
         anchors.margins: Screen.pixelDensity
         visible: displayPanel.showOption && !logTab.visible && !changeUserTab.visible
     }
-//    DisplayGpioPanel {
-//        id: displayGpioPanel
-//        anchors.right: parent.right
-//        anchors.top: parent.top
-//        anchors.bottom: applicationProgressBar.top
-//        width: parent.width * 0.25
-//        anchors.rightMargin: parent.width * 0.04
-//        anchors.topMargin: parent.width * 0.05
-//        anchors.margins: Screen.pixelDensity
-//        visible: logTab.visible
-//    }
+    DisplayGpioPanel {
+        id: displayGpioPanel
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: applicationProgressBar.top
+        width: parent.width * 0.25
+        anchors.rightMargin: parent.width * 0.04
+        anchors.topMargin: parent.width * 0.05
+        anchors.margins: Screen.pixelDensity
+        visible: logTab.visible
+    }
     ApplicationProgressBar {
         id: applicationProgressBar
         anchors.right: parent.right

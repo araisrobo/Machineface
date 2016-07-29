@@ -19,6 +19,7 @@
         <file>Machineface/ChangeUserTab.qml</file>
         <file>Machineface/ProductTab.qml</file>
         <file>Machineface/ProductData.qml</file>
+        <file>Machineface/ProductCreate.qml</file>
         <file>Machineface/GpioData.qml</file>
         <file>Machineface/SettingsTab.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>
