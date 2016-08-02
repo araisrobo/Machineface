@@ -111,7 +111,7 @@ Tab {
 
     function search(lotID, lotName, target, opID){
         var req = new XMLHttpRequest;
-        req.open("GET", "http://10.1.1.150:8080/qtlot/" + parseInt(opID) +"/"+ parseInt(lotID) +"/"+ lotName +"/"+ parseInt(target));
+        req.open("GET", "http://10.1.1.148:8080/qtlot/" + parseInt(opID) +"/"+ parseInt(lotID) +"/"+ lotName +"/"+ parseInt(target));
         req.onreadystatechange = function() {
             status = req.readyState;
             if (status === XMLHttpRequest.DONE) {

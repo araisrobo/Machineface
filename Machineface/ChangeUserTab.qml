@@ -130,8 +130,8 @@ Tab {
             } else {
                 userName = "Operator"
             }
-            console.log("http://10.1.1.150:8080/pwd/" + userName)
-            req.open("GET", "http://10.1.1.150:8080/pwd/" + userName);
+            // console.log("http://127.0.0.1:8080/pwd/" + userName)
+            req.open("GET", "http://10.1.1.148:8080/pwd/" + userName);
             req.onreadystatechange = function() {
                 status = req.readyState;
                 if (status === XMLHttpRequest.DONE) {

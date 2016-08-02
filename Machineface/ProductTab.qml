@@ -6,7 +6,7 @@ import QtQuick.Window 2.0
 import QtQuick.Controls.Styles 1.0
 
 Tab {
-    title: qsTr("Product")
+    title: qsTr("Prod.")
     TabView{
         id:productPage
         tabsVisible: false
