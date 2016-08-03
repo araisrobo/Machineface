@@ -106,13 +106,9 @@ ServiceWindow {
 //        VideoTab { }
         SettingsTab { ipaddress: "192.168.43.75:8080" }
         ProductTab{id:productTab; ipaddress: "192.168.43.75:8080"}
-//        ChangeUserTab{id: changeUserTab}
 //        ExtrasTab { }
 //        ANDDemo { }
-//        Testtab {}
         LogTab{id:logTab}
-//        GPIO_Tab{id:gpioTab}
-//        LogTab{id:logTab; visible: false; enabled:changeUserTab.userID > 0}
         Signals{
             id:signalTab
         }
@@ -129,7 +125,7 @@ ServiceWindow {
                                                             Qt.darker("lightsteelblue", 1.5) :
                                                             Qt.darker("#DDD", 1.3) }
                 }
-                implicitWidth: Math.max(text.width + 4, 70)
+                implicitWidth: Math.max(text.width + 4, 60)
                 implicitHeight: 60
                 radius: 10
                 Text {
@@ -152,7 +148,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible && !productTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible
     }
     DisplayOtherPanel {
         id: displayOtherPanel
@@ -163,7 +159,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible && !productTab.visible
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible
     }
     DisplayOptionPanel {
         id: displayOptionPanel
@@ -174,7 +170,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption && !logTab.visible && !productTab.visible
+        visible: displayPanel.showOption && !logTab.visible
     }
     DisplayGpioPanel {
         id: displayGpioPanel
@@ -193,7 +189,7 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !jogTab.visible && !productTab.visible
+        visible: !signalTab.visible && !jogTab.visible
     }
 
     ApplicationNotifications {

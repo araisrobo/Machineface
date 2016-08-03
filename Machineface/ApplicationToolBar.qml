@@ -93,7 +93,14 @@ Rectangle {
         TouchButton {
             Layout.fillWidth: true
             Layout.preferredHeight: width
-            onClicked: displayPanel.showOption_f()
+            onClicked: {
+                if (displayPanel.hidePanel){
+                    displayPanel.showDisplay()
+                }else{
+                    mainTab.currentIndex = 0
+                    displayPanel.showOption_f()
+                }
+            }
             iconSource: ""
             FontIcon { // more_horiz
                 text: "\ue5d3"; color: systemPalette.light
