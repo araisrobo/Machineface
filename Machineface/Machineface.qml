@@ -104,9 +104,9 @@ ServiceWindow {
         GCodeTab { }
         /*PreviewTab { }*/
 //        VideoTab { }
-        SettingsTab { }
-        ProductTab{id:productTab}
-        ChangeUserTab{id: changeUserTab}
+        SettingsTab { ipaddress: "192.168.43.75:8080" }
+        ProductTab{id:productTab; ipaddress: "192.168.43.75:8080"}
+//        ChangeUserTab{id: changeUserTab}
 //        ExtrasTab { }
 //        ANDDemo { }
 //        Testtab {}
@@ -152,7 +152,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible && !changeUserTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible && !productTab.visible
     }
     DisplayOtherPanel {
         id: displayOtherPanel
@@ -163,7 +163,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible && !changeUserTab.visible
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible && !productTab.visible
     }
     DisplayOptionPanel {
         id: displayOptionPanel
@@ -174,7 +174,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption && !logTab.visible && !changeUserTab.visible
+        visible: displayPanel.showOption && !logTab.visible && !productTab.visible
     }
     DisplayGpioPanel {
         id: displayGpioPanel
@@ -193,7 +193,7 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !jogTab.visible && !changeUserTab.visible
+        visible: !signalTab.visible && !jogTab.visible && !productTab.visible
     }
 
     ApplicationNotifications {

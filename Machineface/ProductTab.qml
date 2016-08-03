@@ -6,11 +6,13 @@ import QtQuick.Window 2.0
 import QtQuick.Controls.Styles 1.0
 
 Tab {
-    title: qsTr("Prod.")
+    title: qsTr("Prod")
+    property string ipaddress: ''
+
     TabView{
         id:productPage
         tabsVisible: false
-        ProductData{}
-        ProductCreate{}
+        ProductData{address: ipaddress}
+        ProductCreate{address: ipaddress}
     }
 }

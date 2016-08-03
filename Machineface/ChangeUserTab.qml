@@ -16,18 +16,40 @@ Tab {
     property bool enbtnChecked: false
     property bool subtnChecked: false
     property int userID: 0
+    property string address: ''
+
     id: changeUserTab
     ColumnLayout {
         id:cl
         property alias userText: userLabel.text
         Item{
+            height: 60
+            width: parent.width
+
+            Rectangle {
+                anchors.fill: parent
+                gradient: Gradient {
+                    GradientStop { position: 0 ; color: Qt.darker("lightgreen", 0.75)}
+                    GradientStop { position: 1 ; color: Qt.darker("lightsteelblue", 1.5)}
+                }
+                Label{
+                    id:changePage
+                    anchors.centerIn: parent
+                    text:qsTr("DRO")
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: setttingsPage.currentIndex = 1
+                    cursorShape: "PointingHandCursor"
+                }
+            }
+        }
+        Item{
             Layout.fillWidth: true
             Layout.fillHeight: true
-
             RowLayout{
-                height: parent.height - (60 * 2)
                 width: parent.width
-
+//                anchors.top: changePage.bottom
                 Button{
                     id: opBtn
                     text: qsTr("Operator")
@@ -130,8 +152,7 @@ Tab {
             } else {
                 userName = "Operator"
             }
-            // console.log("http://127.0.0.1:8080/pwd/" + userName)
-            req.open("GET", "http://10.1.1.148:8080/pwd/" + userName);
+            req.open("GET", "http://"+ address+"/pwd/" + userName);
             req.onreadystatechange = function() {
                 status = req.readyState;
                 if (status === XMLHttpRequest.DONE) {

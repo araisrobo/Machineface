@@ -22,6 +22,7 @@
         <file>Machineface/ProductCreate.qml</file>
         <file>Machineface/GpioData.qml</file>
         <file>Machineface/SettingsTab.qml</file>
+        <file>Machineface/SetDroTab.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>
         <file>Machineface/OverlayDialog.qml</file>
         <file>Machineface/AboutDialog.qml</file>

@@ -11,6 +11,7 @@ Tab {
     property bool wasLoading: false
     property int baseSize: Math.min(width, height)
     property int fontSize: baseSize * 0.05
+    property string address: ''
 
     ColumnLayout {
 
@@ -137,7 +138,7 @@ Tab {
             }
             function search(lotID){
                 var req = new XMLHttpRequest;
-                req.open("GET", "http://10.1.1.148:8080/qtSearchLot/" + parseInt(lotID));
+                req.open("GET", "http://" + address+ "/qtSearchLot/" + parseInt(lotID));
                 req.onreadystatechange = function() {
                     status = req.readyState;
                     if (status === XMLHttpRequest.DONE) {

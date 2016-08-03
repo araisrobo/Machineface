@@ -11,6 +11,7 @@ Tab {
     property bool wasLoading: false
     property int baseSize: Math.min(width, height)
     property int fontSize: baseSize * 0.05
+    property string address: data.address
 
     ColumnLayout {
         Layout.fillWidth: true
@@ -111,7 +112,7 @@ Tab {
 
     function search(lotID, lotName, target, opID){
         var req = new XMLHttpRequest;
-        req.open("GET", "http://10.1.1.148:8080/qtlot/" + parseInt(opID) +"/"+ parseInt(lotID) +"/"+ lotName +"/"+ parseInt(target));
+        req.open("GET", "http://" + address + "/qtlot/" + parseInt(opID) +"/"+ parseInt(lotID) +"/"+ lotName +"/"+ parseInt(target));
         req.onreadystatechange = function() {
             status = req.readyState;
             if (status === XMLHttpRequest.DONE) {

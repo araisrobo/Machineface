@@ -47,6 +47,8 @@ FocusScope {
     property alias hint: hint.text
     property alias prefix: prefix.text
     property alias echo: input.echoMode
+    property alias inputMethodHint: input.inputMethodHints
+
     property var inputWidget: input
 
     signal accepted

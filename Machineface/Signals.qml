@@ -13,7 +13,7 @@ import Machinekit.HalRemote.Controls 1.0
 
 Tab {// signaltab
     id: signaltab
-    title: qsTr("Sig.")
+    title: qsTr("Sig")
     active: true
     ApplicationItem {
         property bool eWasConnected: false
