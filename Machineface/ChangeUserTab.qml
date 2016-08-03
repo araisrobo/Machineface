@@ -35,7 +35,7 @@ Tab {
                 Label{
                     id:changePage
                     anchors.centerIn: parent
-                    text:qsTr("DRO")
+                    text:qsTr("Users")
                 }
                 MouseArea {
                     anchors.fill: parent

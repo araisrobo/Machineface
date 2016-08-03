@@ -5,7 +5,7 @@ import QtQuick.Window 2.0
 import Machinekit.Application.Controls 1.0
 
 Tab {
-    title: qsTr("Set")
+    title: qsTr("DRO")
     property int status: XMLHttpRequest.UNSENT
     property bool isLoading: status === XMLHttpRequest.LOADING
     property bool wasLoading: false
@@ -24,7 +24,7 @@ Tab {
                 Label{
                     id:changePageUser
                     anchors.centerIn: parent
-                    text:qsTr("User")
+                    text:qsTr("DRO")
                 }
                 MouseArea {
                     anchors.fill: parent
