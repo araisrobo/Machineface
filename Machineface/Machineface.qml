@@ -73,7 +73,7 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: window.height * 0.2
+        width: window.height * 0.125
     }
 
     ApplicationRemoteFileDialog {
@@ -103,15 +103,10 @@ ServiceWindow {
         MdiTab { }
         GCodeTab { }
         /*PreviewTab { }*/
-//        VideoTab { }
-        SettingsTab { ipaddress: "192.168.43.75:8080" }
-        ProductTab{id:productTab; ipaddress: "192.168.43.75:8080"}
-//        ExtrasTab { }
-//        ANDDemo { }
-        LogTab{id:logTab}
-        Signals{
-            id:signalTab
-        }
+        SettingsTab { ipaddress: "pi5.local:8080" }
+        ProductTab{id:productTab; ipaddress: "pi5.local:8080"}
+        LogTab{ id: logTab }
+        Signals{ id: signalTab }
 
         style: TabViewStyle {
             frameOverlap: 1
@@ -150,6 +145,7 @@ ServiceWindow {
         anchors.margins: Screen.pixelDensity
         visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible
     }
+
     DisplayOtherPanel {
         id: displayOtherPanel
         anchors.right: parent.right
@@ -161,6 +157,7 @@ ServiceWindow {
         anchors.margins: Screen.pixelDensity
         visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible
     }
+
     DisplayOptionPanel {
         id: displayOptionPanel
         anchors.right: parent.right

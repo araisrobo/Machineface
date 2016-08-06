@@ -1369,7 +1369,8 @@ Tab {
             anchors.top: groupbox2.bottom
             flat: false
             property double namescale: (groupbox1.width.toFixed((2)) / 20).toFixed(2)
-            property double valuescale: ((groupbox1.width.toFixed((2)) - spacetext.width - 10) / 6.1).toFixed(2)
+            // property double valuescale: ((groupbox1.width.toFixed((2)) - spacetext.width - 10) / 6.1).toFixed(2)
+            property double valuescale: ((groupbox1.width.toFixed((2)) - 50) / 6.1).toFixed(2)
             //***************************************************
             // Fix
             //***************************************************
@@ -1397,7 +1398,6 @@ Tab {
                     font.bold: true
                     Layout.preferredWidth: groupbox3.namescale
                     horizontalAlignment: Text.AlignRight
-
                 }
                 Text {
                     id: mototcmdtext
@@ -1406,7 +1406,6 @@ Tab {
                     font.bold: true
                     Layout.preferredWidth: groupbox3.valuescale
                     horizontalAlignment: Text.AlignRight
-
                 }
                 Text {
                     id: encpostext

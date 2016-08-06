@@ -11,8 +11,8 @@ import Machinekit.HalRemote 1.0
 import Machinekit.HalRemote.Controls 1.0
 
 
-Tab {// signaltab
-    id: signaltab
+Tab {
+    id: signalTab
     title: qsTr("Sig")
     active: true
     ApplicationItem {
@@ -112,4 +112,4 @@ Tab {// signaltab
             }
         }
     }
-}// Tab {// signaltab
+} // Tab
