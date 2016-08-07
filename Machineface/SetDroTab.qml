@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Window 2.0
+import Machinekit.Application 1.0
 import Machinekit.Application.Controls 1.0
 
 Tab {
@@ -48,16 +49,6 @@ Tab {
                     width: scrollView.width
                     spacing: Screen.pixelDensity
 
-                    //            VelocityExtrusionControl {
-                    //                Layout.fillWidth: false
-                    //                id: velocityExtrusionControl
-                    //            }
-
-                    //            GantryConfigControl {
-                    //                Layout.fillWidth: false
-                    //                id: gantryConfigControl
-                    //            }
-
                     Label {
                         text: qsTr("Digital Read Out")
                         font.bold: true
@@ -82,6 +73,23 @@ Tab {
                         valueName: "showDistanceToGo"
                         text: qsTr("Show distance to go")
                     }
+
+                    //TODO: CheckBox {
+                    //TODO:     id: relativePositionCheck
+                    //TODO:     text: "Relative Position Mode"
+                    //TODO:     onClicked: {
+                    //TODO:         console.log("Checked: " + checked)
+                    //TODO:         if (checked === true) {
+                    //TODO:              console.log("Checked is true, RelativePosition")
+                    //TODO:              applicationCore.status.config.positionOffset = ApplicationStatus.RelativePositionOffset
+                    //TODO:         } else {
+                    //TODO:              console.log("Checked is not true, MachinePosition")
+                    //TODO:              applicationCore.status.config.positionOffset = ApplicationStatus.MachinePositionOffset
+                    //TODO:         }
+                    //TODO:         console.log("applicationCore.settings.values[dro][showDistanceToGo]: " + applicationCore.settings.values["dro"]["showDistanceToGo"])
+                    //TODO:         console.log("dro.positionOffset: " + applicationCore.status.config.positionOffset)
+                    //TODO:     }
+                    //TODO: }
 
                     Label {
                         text: qsTr("Other")
@@ -131,6 +139,7 @@ Tab {
                             }
                         }
                     }
+
                     FocusScope {
                         id: oil_time
                         height: 60
@@ -154,6 +163,7 @@ Tab {
                             }
                         }
                     }
+
                     function set(search, value){
                         var req = new XMLHttpRequest;
                         req.open("GET", "http://" + address +"/" + search + "/" + value);
@@ -186,6 +196,7 @@ Tab {
                         req.send();
                     }
                     Component.onCompleted: {
+                        /* TODO: call search() only if address has been resolved */
                         search()
                     }
                     /* ToggleSettingCheck {
