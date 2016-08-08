@@ -47,6 +47,8 @@ FocusScope {
     property alias hint: hint.text
     property alias prefix: prefix.text
     property alias echo: input.echoMode
+    property alias inputMethodHint: input.inputMethodHints
+
     property var inputWidget: input
 
     signal accepted
@@ -54,7 +56,8 @@ FocusScope {
     Rectangle {
         anchors.fill: parent
         border.color: "#707070"
-        color: "#c1c1c1"
+//        color: "#c1c1c1"
+        color: "white"
         radius: 4
 
         Text {
@@ -86,15 +89,15 @@ FocusScope {
             onAccepted: wrapper.accepted()
         }
 
-        Image {
-            source: "qrc:MachineKit/../../icons/icon-search.png"
-            anchors.right: parent.right
-            anchors.rightMargin: 12
-            anchors.verticalCenter: parent.verticalCenter
-            MouseArea {
-                anchors { fill: parent; margins: -10 }
-                onClicked: wrapper.accepted()
-            }
-        }
+//        Image {
+//            source: "qrc:MachineKit/../../icons/icon-search.png"
+//            anchors.right: parent.right
+//            anchors.rightMargin: 12
+//            anchors.verticalCenter: parent.verticalCenter
+//            MouseArea {
+//                anchors { fill: parent; margins: -10 }
+//                onClicked: wrapper.accepted()
+//            }
+//        }
     }
 }

@@ -73,7 +73,7 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: window.height * 0.2
+        width: window.height * 0.125
     }
 
     ApplicationRemoteFileDialog {
@@ -103,19 +103,11 @@ ServiceWindow {
         MdiTab { }
         GCodeTab { }
         /*PreviewTab { }*/
-//        VideoTab { }
-        SettingsTab { }
-        ProductTab{id:productTab}
-        ChangeUserTab{id: changeUserTab}
-//        ExtrasTab { }
-//        ANDDemo { }
-//        Testtab {}
-        LogTab{id:logTab}
-//        GPIO_Tab{id:gpioTab}
-//        LogTab{id:logTab; visible: false; enabled:changeUserTab.userID > 0}
-        Signals{
-            id:signalTab
-        }
+        SettingsTab { ipaddress: "pi5.local:8080" }
+        ProductTab{id:productTab; ipaddress: "pi5.local:8080"}
+        LogTab{ id: logTab }
+        Signals{ id: signalTab }
+
         style: TabViewStyle {
             frameOverlap: 1
 
@@ -128,7 +120,7 @@ ServiceWindow {
                                                             Qt.darker("lightsteelblue", 1.5) :
                                                             Qt.darker("#DDD", 1.3) }
                 }
-                implicitWidth: Math.max(text.width + 4, 70)
+                implicitWidth: Math.max(text.width + 4, 60)
                 implicitHeight: 60
                 radius: 10
                 Text {
@@ -139,6 +131,7 @@ ServiceWindow {
                 }
             }
         }
+
     }
 
     DisplayPanel {
@@ -150,8 +143,9 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel /*&& !logTab.visible*/ && !changeUserTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible
     }
+
     DisplayOtherPanel {
         id: displayOtherPanel
         anchors.right: parent.right
@@ -161,8 +155,9 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption /*&& !logTab.visible*/ && !changeUserTab.visible
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible
     }
+
     DisplayOptionPanel {
         id: displayOptionPanel
         anchors.right: parent.right
@@ -172,26 +167,26 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption && !logTab.visible && !changeUserTab.visible
+        visible: displayPanel.showOption && !logTab.visible
     }
-//    DisplayGpioPanel {
-//        id: displayGpioPanel
-//        anchors.right: parent.right
-//        anchors.top: parent.top
-//        anchors.bottom: applicationProgressBar.top
-//        width: parent.width * 0.25
-//        anchors.rightMargin: parent.width * 0.04
-//        anchors.topMargin: parent.width * 0.05
-//        anchors.margins: Screen.pixelDensity
-//        visible: logTab.visible
-//    }
+    DisplayGpioPanel {
+        id: displayGpioPanel
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: applicationProgressBar.top
+        width: parent.width * 0.25
+        anchors.rightMargin: parent.width * 0.04
+        anchors.topMargin: parent.width * 0.05
+        anchors.margins: Screen.pixelDensity
+        visible: logTab.visible
+    }
     ApplicationProgressBar {
         id: applicationProgressBar
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !jogTab.visible && !changeUserTab.visible
+        visible: !signalTab.visible && !jogTab.visible
     }
 
     ApplicationNotifications {
