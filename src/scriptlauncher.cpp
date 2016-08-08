@@ -5,9 +5,8 @@ ScriptLauncher::ScriptLauncher(QObject *parent) :
     m_process(new QProcess(this))
 {
 }
-void ScriptLauncher::launchScript()
+void ScriptLauncher::launchScript(QString program)
 {
-    // m_process->start("/usr/bin/totem");
-    m_process->start("/usr/bin/python /home/ysli/proj/remote-ui/Machineface/scripts/example.py");
-
+    m_process->start(program);
+    m_process->waitForFinished();
 }
