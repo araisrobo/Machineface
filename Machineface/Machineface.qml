@@ -103,8 +103,8 @@ ServiceWindow {
         MdiTab { }
         GCodeTab { }
         /*PreviewTab { }*/
-        SettingsTab { ipaddress: "pi5.local:8080" }
-        ProductTab{id:productTab; ipaddress: "pi5.local:8080"}
+        SettingsTab { ipaddress: "192.168.5.2:8080" }
+        ProductTab{id:productTab; ipaddress: "192.168.5.2:8080"}
         LogTab{ id: logTab }
         Signals{ id: signalTab }
 
