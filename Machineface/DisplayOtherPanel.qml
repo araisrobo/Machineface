@@ -144,6 +144,8 @@ ColumnLayout {
                     command.setTaskMode('execute', ApplicationCommand.TaskModeMdi)
                 }
                 var axisName = _axisNames[index]
+                var mdi = "G0 " + axisNames[index] + "0.01"
+                command.executeMdi('execute', mdi)
                 var mdi = "G0 " + axisNames[index] + "0"
                 command.executeMdi('execute', mdi)
             }
