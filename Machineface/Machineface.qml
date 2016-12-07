@@ -103,9 +103,10 @@ ServiceWindow {
         MdiTab { }
         GCodeTab { }
         /*PreviewTab { }*/
-        SettingsTab { ipaddress: "192.168.5.2:8080" }
-        ProductTab{id:productTab; ipaddress: "192.168.5.2:8080"}
-        LogTab{ id: logTab }
+        SettingsTab { }
+//        SettingsTab { ipaddress: "192.168.5.2:8080" }
+//        ProductTab{id:productTab; ipaddress: "192.168.5.2:8080"}
+//        LogTab{ id: logTab }
         Signals{ id: signalTab }
 
         style: TabViewStyle {
@@ -143,7 +144,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel && !logTab.visible
+        visible: !signalTab.visible && !displayPanel.hidePanel /* && !logTab.visible */
     }
 
     DisplayOtherPanel {
@@ -155,7 +156,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption && !logTab.visible
+        visible: displayPanel.hidePanel && !displayPanel.showOption /* && !logTab.visible */
     }
 
     DisplayOptionPanel {
@@ -167,19 +168,19 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption && !logTab.visible
+        visible: displayPanel.showOption /* && !logTab.visible */
     }
-    DisplayGpioPanel {
-        id: displayGpioPanel
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: applicationProgressBar.top
-        width: parent.width * 0.25
-        anchors.rightMargin: parent.width * 0.04
-        anchors.topMargin: parent.width * 0.05
-        anchors.margins: Screen.pixelDensity
-        visible: logTab.visible
-    }
+//    DisplayGpioPanel {
+//        id: displayGpioPanel
+//        anchors.right: parent.right
+//        anchors.top: parent.top
+//        anchors.bottom: applicationProgressBar.top
+//        width: parent.width * 0.25
+//        anchors.rightMargin: parent.width * 0.04
+//        anchors.topMargin: parent.width * 0.05
+//        anchors.margins: Screen.pixelDensity
+//        visible: logTab.visible
+//    }
     ApplicationProgressBar {
         id: applicationProgressBar
         anchors.right: parent.right
