@@ -6,6 +6,8 @@
         <file>Machineface/ButtonJog.qml</file>
         <file>Machineface/CustomStyle.qml</file>
         <file>Machineface/DisplayPanel.qml</file>
+        <file>Machineface/DisplayOtherPanel.qml</file>
+        <file>Machineface/DisplayOptionPanel.qml</file>
         <file>Machineface/PreviewTab.qml</file>
         <file>Machineface/JogControlTab.qml</file>
         <file>Machineface/ApplicationToolBar.qml</file>
