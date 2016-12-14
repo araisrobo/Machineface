@@ -31,15 +31,6 @@ Rectangle {
             TouchButton {
                 Layout.fillWidth: true
                 Layout.preferredHeight: width
-                action : OpenAction { fileDialog: applicationFileDialog }
-                iconSource: ""
-                FontIcon { // folder-open
-                    text: "\ue2c8"; color: systemPalette.light
-                }
-            }
-            TouchButton {
-                Layout.fillWidth: true
-                Layout.preferredHeight: width
                 action : OpenAction {
                     fileDialog: applicationRemoteFileDialog
                     shortcut: "Shift+O"
