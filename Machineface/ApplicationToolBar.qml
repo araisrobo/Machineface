@@ -22,15 +22,6 @@ Rectangle {
             TouchButton {
                 Layout.fillWidth: true
                 Layout.preferredHeight: width
-                action : EstopPowerAction { }
-                iconSource: ""
-                FontIcon { // settings-power
-                    text: "\ue8c6"; color: systemPalette.light
-                }
-            }
-            TouchButton {
-                Layout.fillWidth: true
-                Layout.preferredHeight: width
                 action : OpenAction {
                     fileDialog: applicationRemoteFileDialog
                     shortcut: "Shift+O"
@@ -95,6 +86,16 @@ Rectangle {
                 iconSource: ""
                 FontIcon { // more_horiz
                     text: "\ue5d3"; color: systemPalette.light
+                }
+            }
+            
+            TouchButton {
+                Layout.fillWidth: true
+                Layout.preferredHeight: width
+                action : EstopPowerAction { }
+                iconSource: ""
+                FontIcon { // settings-power
+                    text: "\ue8c6"; color: systemPalette.light
                 }
             }
 
