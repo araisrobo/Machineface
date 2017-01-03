@@ -10,10 +10,11 @@ Rectangle {
     color: systemPalette.dark
 
     SystemPalette { id: systemPalette }
+
     Flickable {
         flickableDirection: Flickable.VerticalFlick
         anchors.fill: parent
-        // contentHeight: parent.height * 2;
+
         ColumnLayout {
             id: toolBar
             anchors.fill: parent
@@ -61,7 +62,9 @@ Rectangle {
             TouchButton {
                 Layout.fillWidth: true
                 Layout.preferredHeight: width
-                action : EditProgramAction { }
+                action : EditProgramAction {
+                    editor: sourceEdit
+                }
                 iconSource: ""
                 FontIcon { // mode_edit
                     text: "\ue254"; color: systemPalette.light

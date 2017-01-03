@@ -74,6 +74,13 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: window.height * 0.125
+        visible: !sourceEdit.visible
+    }
+
+    SourceEdit {
+        id: sourceEdit
+        width: window.width
+        height: window.height
     }
 
     ApplicationRemoteFileDialog {
@@ -96,6 +103,7 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         anchors.rightMargin: Screen.pixelDensity
         anchors.leftMargin: Screen.pixelDensity / 2
+        visible: !sourceEdit.visible
 
         JogControlTab {
             id:jogTab
@@ -144,7 +152,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !displayPanel.hidePanel /* && !logTab.visible */
+        visible: !signalTab.visible && !displayPanel.hidePanel && !sourceEdit.visible /* && !logTab.visible */
     }
 
     DisplayOtherPanel {
@@ -156,7 +164,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.hidePanel && !displayPanel.showOption /* && !logTab.visible */
+        visible: displayPanel.hidePanel && !displayPanel.showOption && !sourceEdit.visible /* && !logTab.visible */
     }
 
     DisplayOptionPanel {
@@ -168,7 +176,7 @@ ServiceWindow {
         anchors.rightMargin: parent.width * 0.04
         anchors.topMargin: parent.width * 0.05
         anchors.margins: Screen.pixelDensity
-        visible: displayPanel.showOption /* && !logTab.visible */
+        visible: displayPanel.showOption && !sourceEdit.visible /* && !logTab.visible */
     }
 //    DisplayGpioPanel {
 //        id: displayGpioPanel
@@ -187,7 +195,7 @@ ServiceWindow {
         anchors.bottom: parent.bottom
         width: displayPanel.width
         anchors.margins: Screen.pixelDensity
-        visible: !signalTab.visible && !jogTab.visible
+        visible: !signalTab.visible && !jogTab.visible && !sourceEdit.visible
     }
 
     ApplicationNotifications {
