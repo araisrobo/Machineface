@@ -10,24 +10,16 @@ Rectangle {
     color: systemPalette.dark
 
     SystemPalette { id: systemPalette }
+
     Flickable {
         flickableDirection: Flickable.VerticalFlick
         anchors.fill: parent
-        // contentHeight: parent.height * 2;
+
         ColumnLayout {
             id: toolBar
             anchors.fill: parent
             anchors.margins: Screen.pixelDensity / 2
 
-            TouchButton {
-                Layout.fillWidth: true
-                Layout.preferredHeight: width
-                action : EstopPowerAction { }
-                iconSource: ""
-                FontIcon { // settings-power
-                    text: "\ue8c6"; color: systemPalette.light
-                }
-            }
             TouchButton {
                 Layout.fillWidth: true
                 Layout.preferredHeight: width
@@ -70,7 +62,9 @@ Rectangle {
             TouchButton {
                 Layout.fillWidth: true
                 Layout.preferredHeight: width
-                action : EditProgramAction { }
+                action : EditProgramAction {
+                    editor: sourceEdit
+                }
                 iconSource: ""
                 FontIcon { // mode_edit
                     text: "\ue254"; color: systemPalette.light
@@ -95,6 +89,16 @@ Rectangle {
                 iconSource: ""
                 FontIcon { // more_horiz
                     text: "\ue5d3"; color: systemPalette.light
+                }
+            }
+            
+            TouchButton {
+                Layout.fillWidth: true
+                Layout.preferredHeight: width
+                action : EstopPowerAction { }
+                iconSource: ""
+                FontIcon { // settings-power
+                    text: "\ue8c6"; color: systemPalette.light
                 }
             }
 
