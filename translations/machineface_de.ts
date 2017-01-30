@@ -2,6 +2,26 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE">
 <context>
+    <name>ANDDemo</name>
+    <message>
+        <source>ANDDemo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AND-Demo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Movie Player</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opening up Application Totem 
+ Opening up users fav browser </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AboutDialog</name>
     <message>
         <source>Close</source>
@@ -10,6 +30,13 @@
     <message>
         <source>About Machineface</source>
         <translation>Über Machineface</translation>
+    </message>
+</context>
+<context>
+    <name>AlarmTab</name>
+    <message>
+        <source>ALARM</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -39,15 +66,15 @@
     <name>ButtonJog</name>
     <message>
         <source>Move </source>
-        <translation>Bewegen</translation>
+        <translation type="vanished">Bewegen</translation>
     </message>
     <message>
         <source> and </source>
-        <translation>und</translation>
+        <translation type="vanished">und</translation>
     </message>
     <message>
         <source> axis to 0</source>
-        <translation>Achse zu 0</translation>
+        <translation type="vanished">Achse zu 0</translation>
     </message>
     <message>
         <source>Select axis action</source>
@@ -55,54 +82,137 @@
     </message>
     <message>
         <source>Select Action</source>
-        <translation>Achse auswählen</translation>
+        <translation type="vanished">Achse auswählen</translation>
     </message>
     <message>
         <source>Touch off </source>
-        <translation>Referenzieren</translation>
+        <translation type="vanished">Referenzieren</translation>
     </message>
     <message>
         <source> axis</source>
-        <translation>Achse</translation>
+        <translation type="vanished">Achse</translation>
     </message>
     <message>
         <source>Change extruder</source>
-        <translation>Extrudierer wechseln</translation>
+        <translation type="vanished">Extrudierer wechseln</translation>
     </message>
     <message>
         <source>Select extruder</source>
-        <translation>Extrudierer auswählen</translation>
+        <translation type="vanished">Extrudierer auswählen</translation>
     </message>
     <message>
         <source>Extruder </source>
-        <translation>Extrudierer</translation>
+        <translation type="vanished">Extrudierer</translation>
     </message>
     <message>
         <source>Velocity</source>
-        <translation>Geschwindigkeit</translation>
+        <translation type="vanished">Geschwindigkeit</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeUserTab</name>
+    <message>
+        <source>Users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Engineer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SuperVisor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DisplayGpioPanel</name>
+    <message>
+        <source>&amp;Reload</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DisplayOptionPanel</name>
+    <message>
+        <source>&amp;Disconnect</source>
+        <translation type="unfinished">&amp;Verbindung trennen</translation>
+    </message>
+    <message>
+        <source>&amp;AboutMachineface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sh&amp;utdown</source>
+        <translation type="unfinished">&amp;Herunterfahren</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Beenden</translation>
+    </message>
+    <message>
+        <source>&amp;Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DisplayOtherPanel</name>
+    <message>
+        <source>AXIS: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Machine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Relative</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Touch Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move to 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>BACK</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DisplayPanel</name>
     <message>
         <source>Heated Bed</source>
-        <translation>Heizbett</translation>
+        <translation type="vanished">Heizbett</translation>
     </message>
     <message>
         <source>Heated Chamber</source>
-        <translation>Heizkammer</translation>
+        <translation type="vanished">Heizkammer</translation>
     </message>
     <message>
         <source>Extruder %1</source>
-        <translation>Extrudierer %1</translation>
+        <translation type="vanished">Extrudierer %1</translation>
     </message>
     <message>
         <source>Light %1</source>
-        <translation>Licht %1</translation>
+        <translation type="vanished">Licht %1</translation>
     </message>
     <message>
         <source>Fan %1</source>
-        <translation>Lüfter %1</translation>
+        <translation type="vanished">Lüfter %1</translation>
+    </message>
+</context>
+<context>
+    <name>ExtrasTab</name>
+    <message>
+        <source>Extras</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -110,6 +220,13 @@
     <message>
         <source>GCode</source>
         <translation>GCode</translation>
+    </message>
+</context>
+<context>
+    <name>GPIO_Tab</name>
+    <message>
+        <source>GPIO</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -138,6 +255,13 @@
     </message>
 </context>
 <context>
+    <name>LogTab</name>
+    <message>
+        <source>Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MdiTab</name>
     <message>
         <source>MDI</source>
@@ -156,6 +280,74 @@
     <message>
         <source>Preview</source>
         <translation>Vorschau</translation>
+    </message>
+</context>
+<context>
+    <name>ProductCreate</name>
+    <message>
+        <source>Insert Lot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProductData</name>
+    <message>
+        <source>Product</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lot Name: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Target: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cycle Time: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TODO</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProductTab</name>
+    <message>
+        <source>Prod</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SetDroTab</name>
+    <message>
+        <source>DRO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digital Read Out</source>
+        <translation type="unfinished">Digitale Anzeige</translation>
+    </message>
+    <message>
+        <source>Show offsets</source>
+        <translation type="unfinished">Abweichungen anzeigen</translation>
+    </message>
+    <message>
+        <source>Show velocity</source>
+        <translation type="unfinished">Geschwindigkeit anzeigen</translation>
+    </message>
+    <message>
+        <source>Show distance to go</source>
+        <translation type="unfinished">Verbleibende Strecke anzeigen</translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished">Andere</translation>
+    </message>
+    <message>
+        <source>Enable preview</source>
+        <translation type="unfinished">Vorschau einschalten</translation>
     </message>
 </context>
 <context>
@@ -191,6 +383,206 @@
     <message>
         <source>Maximum Velocity:</source>
         <translation>Maximale Geschwindigkeit:</translation>
+    </message>
+</context>
+<context>
+    <name>Signals</name>
+    <message>
+        <source>Sig</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Signals_Analog</name>
+    <message>
+        <source>Analog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analog Input  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analog Output  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Analog Output Feedback  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Signals_Debug</name>
+    <message>
+        <source>Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Debug  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Signals_GPIO</name>
+    <message>
+        <source>GPIO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digitial Input  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>31</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>24</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>16</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>08</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>00</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>63</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>56</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>48</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>40</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>32</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>95</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>88</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>80</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>72</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>64</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Digitial Output  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Positions  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>risc-pos-cmd-pulse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>enc-pos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pos-cmd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pos-fb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>vel-fb</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ferror</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J6</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

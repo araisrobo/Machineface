@@ -332,16 +332,16 @@
 <context>
     <name>Signals_Analog</name>
     <message>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Analog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Analog Input  </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source></source>
-        <translation></translation>
     </message>
     <message>
         <source>Analog Output  </source>
@@ -355,6 +355,10 @@
 <context>
     <name>Signals_Debug</name>
     <message>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
         <source>Debug</source>
         <translation type="unfinished"></translation>
     </message>
@@ -362,13 +366,13 @@
         <source>Debug  </source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>Signals_GPIO</name>
     <message>
         <source></source>
         <translation></translation>
     </message>
-</context>
-<context>
-    <name>Signals_GPIO</name>
     <message>
         <source>GPIO</source>
         <translation type="unfinished"></translation>
@@ -376,10 +380,6 @@
     <message>
         <source>Digitial Input  </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source></source>
-        <translation></translation>
     </message>
     <message>
         <source>31</source>
