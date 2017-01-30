@@ -14,6 +14,10 @@
         <file>Machineface/MdiTab.qml</file>
         <file>Machineface/GCodeTab.qml</file>
         <file>Machineface/SettingsTab.qml</file>
+        <file>Machineface/Signals.qml</file>
+        <file>Machineface/Signals_GPIO.qml</file>
+        <file>Machineface/Signals_Analog.qml</file>
+        <file>Machineface/Signals_Debug.qml</file>
         <file>Machineface/ToggleSettingCheck.qml</file>
         <file>Machineface/OverlayDialog.qml</file>
         <file>Machineface/AboutDialog.qml</file>

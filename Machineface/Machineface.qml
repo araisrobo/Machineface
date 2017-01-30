@@ -115,6 +115,7 @@ ServiceWindow {
 //        SettingsTab { ipaddress: "192.168.5.2:8080" }
 //        ProductTab{id:productTab; ipaddress: "192.168.5.2:8080"}
 //        LogTab{ id: logTab }
+
         Signals{ id: signalTab }
 
         style: TabViewStyle {
@@ -205,6 +206,10 @@ ServiceWindow {
         anchors.top: parent.top
         anchors.margins: Screen.pixelDensity
         messageWidth: parent.width * 0.25
+    }
+
+    Component.onCompleted: {
+        console.log("Machineface.qml, locale: ", Qt.locale().name.substring(0,5))
     }
 }
 

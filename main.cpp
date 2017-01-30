@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QTranslator>
 #include <QLibraryInfo>
+#include <QDebug>
 
 #include "src/scriptlauncher.h"
 #include <QQmlContext>
@@ -24,6 +25,8 @@ int main(int argc, char *argv[])
     {
         QCoreApplication::installTranslator(&translator);
     }
+    qDebug() << "QLocale(): " << QLocale();
+    qDebug() << "TranslationsPath: " << QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 
     return app.exec();
 }

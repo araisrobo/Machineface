@@ -2,7 +2,7 @@ TEMPLATE = app
 NAME = Machineface
 
 QT += qml quick widgets \
-    webengine
+    webengine core
 
 SOURCES += main.cpp \
     src/scriptlauncher.cpp
@@ -32,3 +32,5 @@ android: {
 TRANSLATIONS_PATH = $$PWD/translations
 TRANSLATIONS_OUT_PATH = $$PWD/$$NAME/translations
 include(translation.pri)
+
+TARGET = mface
